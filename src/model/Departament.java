@@ -1,37 +1,56 @@
 package model;
 
-public class departament {
+public class Departament {
 	
+	
+	private double initialInventory;
+	private double InitialInventorydirectMaterial;
+	private double InitialInventorydirectWorkforce;
+	private double InitialInventoryindirectManufacturingCosts;
+	
+	
+	private double productOnProcess;
 	private double directMaterial;
 	private double directWorkforce;
 	private double indirectManufacturingCosts;
-	private double initialInventory;
-	private double productOnProcess;
+	
 	private double finalInventory;
+	
+
 	private double initialDirectMaterialPercentage;
 	private double initialDirectWorkforcePercentage;
 	private double initialIndirectManufacturingCostsPercentage;
 	private double finalDirectMaterialPercentage;
 	private double finalDirectWorkforcePercentage;
 	private double finalIndirectManufacturingCostsPercentage;
+	private double finishedUnits;
 	
 	
-	private physicalFlow physicalFlow;
-	private costForUnit costForUnit;
-	private assignmentOfCost assignmentOfCost;
+	private PhysicalFlow physicalFlow;
+	private CostForUnit costForUnit;
+	private AssignmentOfCost assignmentOfCost;
 	
-		
-	public departament(double directMaterial, double directWorkforce, double indirectManufacturingCosts,
-			double initialInventory, double productOnProcess, double finalInventory,
-			double initialDirectMaterialPercentage, double initialDirectWorkforcePercentage,
+	private double costTransferredPerUnit;
+	
+	
+	
+	
+	public Departament(double initialInventory, double initialInventorydirectMaterial,
+			double initialInventorydirectWorkforce, double initialInventoryindirectManufacturingCosts,
+			double productOnProcess, double directMaterial, double directWorkforce, double indirectManufacturingCosts,
+			double finalInventory, double initialDirectMaterialPercentage, double initialDirectWorkforcePercentage,
 			double initialIndirectManufacturingCostsPercentage, double finalDirectMaterialPercentage,
-			double finalDirectWorkforcePercentage, double finalIndirectManufacturingCostsPercentage) {
+			double finalDirectWorkforcePercentage, double finalIndirectManufacturingCostsPercentage,
+			double finishedUnits, double costTransferredPerUnit) {
 		super();
+		this.initialInventory = initialInventory;
+		InitialInventorydirectMaterial = initialInventorydirectMaterial;
+		InitialInventorydirectWorkforce = initialInventorydirectWorkforce;
+		InitialInventoryindirectManufacturingCosts = initialInventoryindirectManufacturingCosts;
+		this.productOnProcess = productOnProcess;
 		this.directMaterial = directMaterial;
 		this.directWorkforce = directWorkforce;
 		this.indirectManufacturingCosts = indirectManufacturingCosts;
-		this.initialInventory = initialInventory;
-		this.productOnProcess = productOnProcess;
 		this.finalInventory = finalInventory;
 		this.initialDirectMaterialPercentage = initialDirectMaterialPercentage;
 		this.initialDirectWorkforcePercentage = initialDirectWorkforcePercentage;
@@ -39,6 +58,38 @@ public class departament {
 		this.finalDirectMaterialPercentage = finalDirectMaterialPercentage;
 		this.finalDirectWorkforcePercentage = finalDirectWorkforcePercentage;
 		this.finalIndirectManufacturingCostsPercentage = finalIndirectManufacturingCostsPercentage;
+		this.finishedUnits = finishedUnits;
+		this.costTransferredPerUnit = costTransferredPerUnit;
+	}
+
+
+	public void relations() {
+		
+		this.physicalFlow = new PhysicalFlow(this.initialInventory, this.productOnProcess, (this.productOnProcess-this.finalInventory), this.finalInventory , initialDirectMaterialPercentage, initialDirectWorkforcePercentage, initialIndirectManufacturingCostsPercentage, finalDirectMaterialPercentage, finalDirectWorkforcePercentage, finalIndirectManufacturingCostsPercentage);
+		
+		double md = physicalFlow.getUnitsToPayDirectMaterial();
+		double mod = physicalFlow.getUnitsToPayDirectWorkforce();
+		double cif = physicalFlow.getUnitsToPayIndirectManufacturingCosts();
+		
+		this.costForUnit = new CostForUnit(this.directMaterial, md, this.directWorkforce, mod, this.indirectManufacturingCosts, cif, this.costTransferredPerUnit );
+		
+		double InitialInvMd = physicalFlow.getInitialDirectMaterial();
+		double InitialInvMod = physicalFlow.getInitialDirectWorkforce();
+		double InitialInvCif = physicalFlow.getInitialIndirectManufacturingCosts();
+		
+		double CostUndMd = costForUnit.getDirectMaterialCostUnit();
+		double CostUndMod = costForUnit.getDirectWorkforceCostUnit();
+		double CostUndCif = costForUnit.getIndirectManufacturingCostsUnit();
+		
+		double startedAndFinished = physicalFlow.getStartedAndFinished();
+		double  costUnd = costForUnit.getTotalCostsForUnit();
+		
+		double finalInvlMd = physicalFlow.getInitialDirectMaterial();
+		double finalInvMod = physicalFlow.getInitialDirectWorkforce();
+		double finalInvCif = physicalFlow.getInitialIndirectManufacturingCosts();
+		
+		this.assignmentOfCost = new AssignmentOfCost(this.InitialInventorydirectMaterial, this.InitialInventorydirectWorkforce, this.InitialInventoryindirectManufacturingCosts, InitialInvMd, InitialInvMod, InitialInvCif, CostUndMd, CostUndMod, CostUndCif, startedAndFinished, costUnd, finalInvlMd, finalInvMod, finalInvCif);
+		
 	}
 	
 	
@@ -113,6 +164,46 @@ public class departament {
 	}
 	public void setFinalIndirectManufacturingCostsPercentage(double finalIndirectManufacturingCostsPercentage) {
 		this.finalIndirectManufacturingCostsPercentage = finalIndirectManufacturingCostsPercentage;
+	}
+
+
+	public double getFinishedUnits() {
+		return finishedUnits;
+	}
+
+
+	public void setFinishedUnits(double finishedUnits) {
+		this.finishedUnits = finishedUnits;
+	}
+
+
+	public PhysicalFlow getPhysicalFlow() {
+		return physicalFlow;
+	}
+
+
+	public void setPhysicalFlow(PhysicalFlow physicalFlow) {
+		this.physicalFlow = physicalFlow;
+	}
+
+
+	public CostForUnit getCostForUnit() {
+		return costForUnit;
+	}
+
+
+	public void setCostForUnit(CostForUnit costForUnit) {
+		this.costForUnit = costForUnit;
+	}
+
+
+	public AssignmentOfCost getAssignmentOfCost() {
+		return assignmentOfCost;
+	}
+
+
+	public void setAssignmentOfCost(AssignmentOfCost assignmentOfCost) {
+		this.assignmentOfCost = assignmentOfCost;
 	}
 
 

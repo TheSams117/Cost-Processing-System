@@ -1,6 +1,6 @@
 package model;
 
-public class costForUnit {
+public class CostForUnit {
 
 	private double DirectMaterialCostUnit;
 	private double DirectWorkforceCostUnit;
@@ -8,14 +8,26 @@ public class costForUnit {
 	private double totalCostsForUnit;
 	private double costTransferred;
 	
-	public costForUnit(double directMaterialCostUnit, double directWorkforceCostUnit,
-			double indirectManufacturingCostsUnit, double totalCostsForUnit, double costTransferred) {
+	
+	private double costMD;
+	private double costMOD;
+	private double costCIF;
+	
+	private double unitMD;
+	private double unitMOD;
+	private double unitCIF;
+	
+	
+	
+	public CostForUnit(double directMaterial, double md, double directWorkforce, double mod, double indirectManufacturingCosts, double cif, double costTransferredPerUnit) {
 		super();
-		DirectMaterialCostUnit = directMaterialCostUnit;
-		DirectWorkforceCostUnit = directWorkforceCostUnit;
-		this.indirectManufacturingCostsUnit = indirectManufacturingCostsUnit;
-		this.totalCostsForUnit = totalCostsForUnit;
-		this.costTransferred = costTransferred;
+		this.costMD = directMaterial;
+		this.unitMD = md;
+		this.costMOD = directWorkforce;
+		this.unitMOD = mod;
+		this.costCIF = indirectManufacturingCosts;
+		this.unitCIF = cif;
+		this.costTransferred = costTransferredPerUnit;
 	}
 	
 	public double getDirectMaterialCostUnit() {

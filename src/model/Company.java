@@ -1,22 +1,22 @@
 package model;
 
-public class company {
+public class Company {
 
-	private departament[] departaments;
+	private Departament[] departaments;
 	private String name;
 	
 	
-	public company( String name) {
+	public Company( String name) {
 		super();
-		this.departaments = new departament[3];
+		this.departaments = new Departament[3];
 		this.name = name;
 	}
 	
 	
-	public departament[] getDepartaments() {
+	public Departament[] getDepartaments() {
 		return departaments;
 	}
-	public void setDepartaments(departament[] departaments) {
+	public void setDepartaments(Departament[] departaments) {
 		this.departaments = departaments;
 	}
 	public String getName() {
@@ -25,6 +25,9 @@ public class company {
 	public void setName(String name) {
 		this.name = name;
 	}
+	
+	
+	
 	
 	
 	

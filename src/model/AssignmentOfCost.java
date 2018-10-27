@@ -1,70 +1,60 @@
 package model;
 
-public class assignmentOfCost {
+public class AssignmentOfCost {
 	
-	private double finishedProduct;
-	private double initialInventoy;
-	private double initialInventoyMD;
-	private double initialInventoyMOD;
-	private double initialInventoyCIF;
+//	private double finishedProduct;
+	private double initialInventory;
+	
+	private double initialInventoryMD;
+	private double initialInventoryMOD;
+	private double initialInventoryCIF;
+	
 	private double startedAndFinished;
 	private double totalCostsFinishedProduct;
-	private double productOnProcess;
+	private double totalProductOnProcess;
+	
 	private double productOnProcessMD;
 	private double productOnProcessMOD;
 	private double productOnProcessCIF;
+
 	
-	
-	
-	
-	
-	public assignmentOfCost(double finishedProduct, double initialInventoy, double initialInventoyMD,
-			double initialInventoyMOD, double initialInventoyCIF, double startedAndFinished,
-			double totalCostsFinishedProduct, double productOnProcess, double productOnProcessMD,
-			double productOnProcessMOD, double productOnProcessCIF) {
+	public AssignmentOfCost(double initialInventorydirectMaterial, double initialInventorydirectWorkforce, double initialInventoryindirectManufacturingCosts, double initialInvMd, double initialInvMod, double initialInvCif, double costUndMd, double costUndMod, double costUndCif, double startedAndFinished2, double costUnd, double finalInvlMd, double finalInvMod, double finalInvCif) {
 		super();
-		this.finishedProduct = finishedProduct;
-		this.initialInventoy = initialInventoy;
-		this.initialInventoyMD = initialInventoyMD;
-		this.initialInventoyMOD = initialInventoyMOD;
-		this.initialInventoyCIF = initialInventoyCIF;
-		this.startedAndFinished = startedAndFinished;
-		this.totalCostsFinishedProduct = totalCostsFinishedProduct;
-		this.productOnProcess = productOnProcess;
-		this.productOnProcessMD = productOnProcessMD;
-		this.productOnProcessMOD = productOnProcessMOD;
-		this.productOnProcessCIF = productOnProcessCIF;
+		this.initialInventory = initialInventorydirectMaterial+initialInventorydirectWorkforce+initialInventoryindirectManufacturingCosts;
+		this.initialInventoryMD = initialInvMd*costUndMd;
+		this.initialInventoryMOD = initialInvMod*costUndMod;
+		this.initialInventoryCIF = initialInvCif*costUndCif;
+		this.startedAndFinished = startedAndFinished2*costUnd;
+		this.totalCostsFinishedProduct = this.initialInventory+this.initialInventoryMD+this.initialInventoryMOD+this.initialInventoryCIF+this.startedAndFinished;
+		this.productOnProcessMD = finalInvlMd*costUndMd;
+		this.productOnProcessMOD = finalInvMod*costUndMod;
+		this.productOnProcessCIF = finalInvCif*costUndCif;
+		this.totalProductOnProcess = this.productOnProcessMD+this.productOnProcessMOD+this.productOnProcessCIF;
 	}
 	
-	public double getFinishedProduct() {
-		return finishedProduct;
-	}
-	public void setFinishedProduct(double finishedProduct) {
-		this.finishedProduct = finishedProduct;
-	}
 	public double getInitialInventoy() {
-		return initialInventoy;
+		return initialInventory;
 	}
 	public void setInitialInventoy(double initialInventoy) {
-		this.initialInventoy = initialInventoy;
+		this.initialInventory = initialInventoy;
 	}
 	public double getInitialInventoyMD() {
-		return initialInventoyMD;
+		return initialInventoryMD;
 	}
 	public void setInitialInventoyMD(double initialInventoyMD) {
-		this.initialInventoyMD = initialInventoyMD;
+		this.initialInventoryMD = initialInventoyMD;
 	}
 	public double getInitialInventoyMOD() {
-		return initialInventoyMOD;
+		return initialInventoryMOD;
 	}
 	public void setInitialInventoyMOD(double initialInventoyMOD) {
-		this.initialInventoyMOD = initialInventoyMOD;
+		this.initialInventoryMOD = initialInventoyMOD;
 	}
 	public double getInitialInventoyCIF() {
-		return initialInventoyCIF;
+		return initialInventoryCIF;
 	}
 	public void setInitialInventoyCIF(double initialInventoyCIF) {
-		this.initialInventoyCIF = initialInventoyCIF;
+		this.initialInventoryCIF = initialInventoyCIF;
 	}
 	public double getStartedAndFinished() {
 		return startedAndFinished;
@@ -79,10 +69,10 @@ public class assignmentOfCost {
 		this.totalCostsFinishedProduct = totalCostsFinishedProduct;
 	}
 	public double getProductOnProcess() {
-		return productOnProcess;
+		return totalProductOnProcess;
 	}
 	public void setProductOnProcess(double productOnProcess) {
-		this.productOnProcess = productOnProcess;
+		this.totalProductOnProcess = productOnProcess;
 	}
 	public double getProductOnProcessMD() {
 		return productOnProcessMD;
