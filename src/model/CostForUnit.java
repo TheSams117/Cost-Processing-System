@@ -28,8 +28,20 @@ public class CostForUnit {
 		this.costCIF = indirectManufacturingCosts;
 		this.unitCIF = cif;
 		this.costTransferred = costTransferredPerUnit;
+		
+		costForUnit();
 	}
 	
+	
+	public void costForUnit() {
+		DirectMaterialCostUnit = costMD/unitMD ;
+		DirectWorkforceCostUnit = costMOD/unitMOD;
+		indirectManufacturingCostsUnit = costCIF/unitCIF; 
+		
+		totalCostsForUnit = DirectMaterialCostUnit + DirectWorkforceCostUnit + indirectManufacturingCostsUnit + costTransferred;
+	}
+	
+
 	public double getDirectMaterialCostUnit() {
 		return DirectMaterialCostUnit;
 	}

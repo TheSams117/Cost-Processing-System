@@ -60,6 +60,9 @@ public class Departament {
 		this.finalIndirectManufacturingCostsPercentage = finalIndirectManufacturingCostsPercentage;
 		this.finishedUnits = finishedUnits;
 		this.costTransferredPerUnit = costTransferredPerUnit;
+		
+		
+		relations();
 	}
 
 
@@ -73,9 +76,9 @@ public class Departament {
 		
 		this.costForUnit = new CostForUnit(this.directMaterial, md, this.directWorkforce, mod, this.indirectManufacturingCosts, cif, this.costTransferredPerUnit );
 		
-		double InitialInvMd = physicalFlow.getInitialDirectMaterial();
-		double InitialInvMod = physicalFlow.getInitialDirectWorkforce();
-		double InitialInvCif = physicalFlow.getInitialIndirectManufacturingCosts();
+		double InitialInvMd = physicalFlow.getInitialDirectMaterialPP();
+		double InitialInvMod = physicalFlow.getInitialDirectWorkforcePP();
+		double InitialInvCif = physicalFlow.getInitialIndirectManufacturingCostsPP();
 		
 		double CostUndMd = costForUnit.getDirectMaterialCostUnit();
 		double CostUndMod = costForUnit.getDirectWorkforceCostUnit();
@@ -84,9 +87,9 @@ public class Departament {
 		double startedAndFinished = physicalFlow.getStartedAndFinished();
 		double  costUnd = costForUnit.getTotalCostsForUnit();
 		
-		double finalInvlMd = physicalFlow.getInitialDirectMaterial();
-		double finalInvMod = physicalFlow.getInitialDirectWorkforce();
-		double finalInvCif = physicalFlow.getInitialIndirectManufacturingCosts();
+		double finalInvlMd = physicalFlow.getInitialDirectMaterialPP();
+		double finalInvMod = physicalFlow.getInitialDirectWorkforcePP();
+		double finalInvCif = physicalFlow.getInitialIndirectManufacturingCostsPP();
 		
 		this.assignmentOfCost = new AssignmentOfCost(this.InitialInventorydirectMaterial, this.InitialInventorydirectWorkforce, this.InitialInventoryindirectManufacturingCosts, InitialInvMd, InitialInvMod, InitialInvCif, CostUndMd, CostUndMod, CostUndCif, startedAndFinished, costUnd, finalInvlMd, finalInvMod, finalInvCif);
 		

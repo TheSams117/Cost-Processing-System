@@ -25,12 +25,19 @@ public class AssignmentOfCost {
 		this.initialInventoryMOD = initialInvMod*costUndMod;
 		this.initialInventoryCIF = initialInvCif*costUndCif;
 		this.startedAndFinished = startedAndFinished2*costUnd;
-		this.totalCostsFinishedProduct = this.initialInventory+this.initialInventoryMD+this.initialInventoryMOD+this.initialInventoryCIF+this.startedAndFinished;
+		
 		this.productOnProcessMD = finalInvlMd*costUndMd;
 		this.productOnProcessMOD = finalInvMod*costUndMod;
 		this.productOnProcessCIF = finalInvCif*costUndCif;
-		this.totalProductOnProcess = this.productOnProcessMD+this.productOnProcessMOD+this.productOnProcessCIF;
+		assignmentOfCost();
+		
 	}
+	
+	public void assignmentOfCost() {
+		this.totalCostsFinishedProduct = this.initialInventory+this.initialInventoryMD+this.initialInventoryMOD+this.initialInventoryCIF+this.startedAndFinished;
+		this.totalProductOnProcess = this.productOnProcessMD+this.productOnProcessMOD+this.productOnProcessCIF;		
+	}
+	
 	
 	public double getInitialInventoy() {
 		return initialInventory;

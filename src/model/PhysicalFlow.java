@@ -7,9 +7,9 @@ public class PhysicalFlow {
 	private double unitsInProcess;
 	
 	
-	private double initialDirectMaterial;
-	private double initialDirectWorkforce;
-	private double initialIndirectManufacturingCosts;
+	private double initialDirectMaterialPP;
+	private double initialDirectWorkforcePP;
+	private double initialIndirectManufacturingCostsPP;
 	
 	
 	private double startedAndFinished;
@@ -50,6 +50,9 @@ public class PhysicalFlow {
 		this.finalDirectMaterialPercentage = finalDirectMaterialPercentage;
 		this.finalDirectWorkforcePercentage = finalDirectWorkforcePercentage;
 		this.finalIndirectManufacturingCostsPercentage = finalIndirectManufacturingCostsPercentage;
+		
+		unitsInProcess();
+		equivalentProduction();
 	}
 
 	public void unitsInProcess() {
@@ -57,19 +60,19 @@ public class PhysicalFlow {
 	}
 	
 	public void equivalentProduction() {
-		initialDirectMaterial = ((100-initialDirectMaterialPercentage)/100)*initialInventoryPP;
-		initialDirectWorkforce = ((100-initialDirectWorkforce)/100)*initialInventoryPP;
-		initialIndirectManufacturingCosts = ((100-initialIndirectManufacturingCostsPercentage)/100)*initialInventoryPP;
+		initialDirectMaterialPP = ((100-initialDirectMaterialPercentage)/100)*initialInventoryPP;
+		initialDirectWorkforcePP = ((100-initialDirectWorkforcePP)/100)*initialInventoryPP;
+		initialIndirectManufacturingCostsPP = ((100-initialIndirectManufacturingCostsPercentage)/100)*initialInventoryPP;
 		
 		
-		finalInventoryPPDirectMaterial = finalDirectMaterialPercentage*finalInventoryPP;
-		finalInventoryPPDirectWorkforce = finalDirectWorkforcePercentage*finalInventoryPP;
-		finalInventoryPPIndirectManufacturingCosts = finalIndirectManufacturingCostsPercentage*finalInventoryPP;
+		finalInventoryPPDirectMaterial = (finalDirectMaterialPercentage/100)*finalInventoryPP;
+		finalInventoryPPDirectWorkforce = (finalDirectWorkforcePercentage/100)*finalInventoryPP;
+		finalInventoryPPIndirectManufacturingCosts = (finalIndirectManufacturingCostsPercentage/100)*finalInventoryPP;
 		
-		unitsToPay = initialInventoryPP+startedUnits+finalInventoryPP;
-		unitsToPayDirectMaterial = initialDirectMaterial + startedAndFinished +  finalInventoryPPDirectMaterial;
-		unitsToPayDirectWorkforce = initialDirectWorkforce + startedAndFinished + finalInventoryPPDirectWorkforce ;
-		unitsToPayIndirectManufacturingCosts = initialIndirectManufacturingCosts + startedAndFinished + finalInventoryPPDirectWorkforce ;
+		unitsToPay = initialInventoryPP+startedAndFinished+finalInventoryPP;
+		unitsToPayDirectMaterial = initialDirectMaterialPP + startedAndFinished +  finalInventoryPPDirectMaterial;
+		unitsToPayDirectWorkforce = initialDirectWorkforcePP + startedAndFinished + finalInventoryPPDirectWorkforce ;
+		unitsToPayIndirectManufacturingCosts = initialIndirectManufacturingCostsPP + startedAndFinished + finalInventoryPPDirectWorkforce ;
 	}
 
 	public double getInitialInventoryPP() {
@@ -192,33 +195,33 @@ public class PhysicalFlow {
 	}
 
 
-	public double getInitialDirectMaterial() {
-		return initialDirectMaterial;
+	public double getInitialDirectMaterialPP() {
+		return initialDirectMaterialPP;
 	}
 
 
-	public void setInitialDirectMaterial(double initialDirectMaterial) {
-		this.initialDirectMaterial = initialDirectMaterial;
+	public void setInitialDirectMaterialPP(double initialDirectMaterial) {
+		this.initialDirectMaterialPP = initialDirectMaterial;
 	}
 
 
-	public double getInitialDirectWorkforce() {
-		return initialDirectWorkforce;
+	public double getInitialDirectWorkforcePP() {
+		return initialDirectWorkforcePP;
 	}
 
 
-	public void setInitialDirectWorkforce(double initialDirectWorkforce) {
-		this.initialDirectWorkforce = initialDirectWorkforce;
+	public void setInitialDirectWorkforcePP(double initialDirectWorkforce) {
+		this.initialDirectWorkforcePP = initialDirectWorkforce;
 	}
 
 
-	public double getInitialIndirectManufacturingCosts() {
-		return initialIndirectManufacturingCosts;
+	public double getInitialIndirectManufacturingCostsPP() {
+		return initialIndirectManufacturingCostsPP;
 	}
 
 
-	public void setInitialIndirectManufacturingCosts(double initialIndirectManufacturingCosts) {
-		this.initialIndirectManufacturingCosts = initialIndirectManufacturingCosts;
+	public void setInitialIndirectManufacturingCostsPP(double initialIndirectManufacturingCosts) {
+		this.initialIndirectManufacturingCostsPP = initialIndirectManufacturingCosts;
 	}
 
 
@@ -280,16 +283,6 @@ public class PhysicalFlow {
 	public void setFinalIndirectManufacturingCostsPercentage(double finalIndirectManufacturingCostsPercentage) {
 		this.finalIndirectManufacturingCostsPercentage = finalIndirectManufacturingCostsPercentage;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+		
 	
 }
