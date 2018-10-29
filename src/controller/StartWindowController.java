@@ -30,7 +30,7 @@ public class StartWindowController {
     }
     
     public void initialize() {
-    	ObservableList<String> items = FXCollections.observableArrayList("Seleccionar","1", "2");
+    	ObservableList<String> items = FXCollections.observableArrayList("Seleccionar","1");
     	selectedAmount.setItems(items);
 	}
 

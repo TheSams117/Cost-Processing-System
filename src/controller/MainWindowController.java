@@ -9,8 +9,7 @@ import javafx.scene.control.Separator;
 import javafx.scene.control.TextField;
 
 public class MainWindowController {
-
-    @FXML
+	@FXML
     private TextField txtNombreDepartamento1;
 
     @FXML
@@ -103,15 +102,38 @@ public class MainWindowController {
     @FXML
     private TextField txtUnidadesFinDepartamento11;
 
+    @FXML
+    private TextField txtUnidadesFinDepartamento111;
 
+    
     @FXML
     void butEvento(ActionEvent event) {
 
     	if(event.getSource().equals(butCalcularCostos)) {
-    		System.out.println("calcula");
+    		Main.calculate(Double.parseDouble(txtUnidadesIniDepartamento1.getText()), 
+    				Double.parseDouble(txtMdPrecioIniDepartamento1.getText()), 
+    				Double.parseDouble(txtModPrecioIniDepartamento1.getText()), 
+    				Double.parseDouble(txtCifPrecioIniDepartamento1.getText()), 
+					0, 
+					Double.parseDouble(txtMdPorIniDepartamento1.getText()), 
+					Double.parseDouble(txtModPorIniDepartamento1.getText()), 
+					Double.parseDouble(txtCifPorIniDepartamento1.getText()), 
+					Double.parseDouble(txtModPorIniDepartamento1.getText()), 
+					Double.parseDouble(txtUnidadesProceDepartamento1.getText()), 
+					Double.parseDouble(txtMdPrecioProceDepartamento1.getText()), 
+					Double.parseDouble(txtModPrecioProceDepartamento1.getText()), 
+					Double.parseDouble(txtCifPrecioProceDepartamento1.getText()), 
+					0, 
+					Double.parseDouble(txtUnidadesFinDepartamento1.getText()), 
+					Double.parseDouble(txtMdPorFinDepartamento1.getText()), 
+					Double.parseDouble(txtModPorFinDepartamento1.getText()), 
+					Double.parseDouble(txtCifPorFinDepartamento1.getText()), 
+					Double.parseDouble(txtModPorFinDepartamento1.getText()), 
+					Double.parseDouble(txtUnidadesFinDepartamento111.getText()), 
+					Double.parseDouble(txtUnidadesFinDepartamento11.getText()), 
+					chkbCostosDeConversión.isSelected());
     	}
     }
-
 
     @FXML
     void costC(ActionEvent event) {
@@ -121,17 +143,12 @@ public class MainWindowController {
     		textoCifPorIniDepartamento1.setVisible(false);
     		txtCifPorIniDepartamento1.setVisible(false);
     		textoPorcentajeIniDepartamento1.setVisible(false);
-    		
-    		
-    		textoModIniDepartamento1.setText("Costos de conversión:");
-    		textoCifIniDepartamento1.setVisible(false);
-    		txtCifPrecioIniDepartamento1.setVisible(false);
-    		
-    		
-    		textoModProceDepartamento1.setText("Costos de conversión:");
-    		textoCifProceDepartamento1.setVisible(false);
-    		txtCifPrecioProceDepartamento1.setVisible(false);
-    		
+//    		textoModIniDepartamento1.setText("Costos de conversión:");
+//    		textoCifIniDepartamento1.setVisible(false);
+//    		txtCifPrecioIniDepartamento1.setVisible(false);
+//    		textoModProceDepartamento1.setText("Costos de conversión:");
+//    		textoCifProceDepartamento1.setVisible(false);
+//    		txtCifPrecioProceDepartamento1.setVisible(false);
     		textoModPorFinDepartamento1.setText("CC =");
     		lineaFinDepartamento1.setVisible(false);
     		textoCifPorFinDepartamento1.setVisible(false);
@@ -144,16 +161,12 @@ public class MainWindowController {
     		textoCifPorIniDepartamento1.setVisible(true);
     		txtCifPorIniDepartamento1.setVisible(true);
     		textoPorcentajeIniDepartamento1.setVisible(true);
-    		
-    		
     		textoModIniDepartamento1.setText("Mano de obra directa:");
     		textoCifIniDepartamento1.setVisible(true);
     		txtCifPrecioIniDepartamento1.setVisible(true);   		
-    		
     		textoModProceDepartamento1.setText("Mano de obra directa:");
     		textoCifProceDepartamento1.setVisible(true);
     		txtCifPrecioProceDepartamento1.setVisible(true);
-    		
     		textoModPorFinDepartamento1.setText("MOD =");
     		lineaFinDepartamento1.setVisible(true);
     		textoCifPorFinDepartamento1.setVisible(true);

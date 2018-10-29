@@ -9,7 +9,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="643.0" prefWidth="419.0" style="-fx-background-color: WHITE;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainWindowController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="670.0" prefWidth="419.0" style="-fx-background-color: WHITE;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainWindowController">
    <children>
       <Label layoutX="12.0" layoutY="2.0" prefHeight="31.0" prefWidth="239.0" text="Departamentos:">
          <font>
@@ -170,7 +170,7 @@
       </Label>
       <Separator layoutX="184.0" layoutY="526.0" orientation="VERTICAL" prefHeight="25.0" prefWidth="3.0" style="-fx-background-color: black;" />
       <Separator fx:id="lineaFinDepartamento1" layoutX="294.0" layoutY="526.0" orientation="VERTICAL" prefHeight="25.0" prefWidth="3.0" style="-fx-background-color: black;" />
-      <Button fx:id="butCalcularCostos" layoutX="144.0" layoutY="601.0" mnemonicParsing="false" onAction="#butEvento" text="Calcular costos">
+      <Button fx:id="butCalcularCostos" layoutX="144.0" layoutY="634.0" mnemonicParsing="false" onAction="#butEvento" text="Calcular costos">
          <font>
             <Font size="15.0" />
          </font>
@@ -182,5 +182,11 @@
             <Font size="13.0" />
          </font>
       </Label>
+      <Label layoutX="12.0" layoutY="604.0" prefHeight="19.0" prefWidth="127.0" text="Unidades terminadas:">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtUnidadesFinDepartamento111" layoutX="138.0" layoutY="601.0" prefHeight="25.0" prefWidth="259.0" text="0" />
    </children>
 </AnchorPane>
