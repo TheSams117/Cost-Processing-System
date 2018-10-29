@@ -2,35 +2,35 @@ package model;
 
 public class Company {
 	//Goez se la come
-	private Departament[] departaments;
-	private String name;
+	private Departament departament;
 	
 	
-	public Company( String name, int num) {
+	public Company( ) {
 		super();
-		this.departaments = new Departament[num];
-		this.name = name;
+		this.departament = null;
+		
 	}
 	
 	
-	public Departament[] getDepartaments() {
-		return departaments;
-	}
-	public void setDepartaments(Departament[] departaments) {
-		this.departaments = departaments;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
 	
+	
+	
+	public void calcularCostos(double inventarioInicialUnidades, double mDinvenrarioInicial, double mODinventarioInicial,
+			double cIFinventarioInicial, double cCinventarioIncial, double porcentajeMDinventarioInicial,
+			double porcentajeMODinventarioInicial, double porcentajeCIFinventarioInicial,
+			double porcentajeCCinventarioIncial, double productoEnProceso, double mD, double mOD, double cIF, double cC,
+			double inventarioFinal, double porcentajeMDinventarioFinal, double porcentajeMODinventarioFinal,
+			double porcentajeCIFinventarioFinal, double porcentajeCCinventarioFinal, double unidadesTerminadas,
+			double costoTransferidoPorUnidad, boolean porCC) {
+		
+			departament = new Departament(inventarioInicialUnidades, mDinvenrarioInicial, mODinventarioInicial, cIFinventarioInicial, cCinventarioIncial, porcentajeMDinventarioInicial, porcentajeMODinventarioInicial, porcentajeCIFinventarioInicial, porcentajeCCinventarioIncial, productoEnProceso, mD, mOD, cIF, cC, inventarioFinal, porcentajeMDinventarioFinal, porcentajeMODinventarioFinal, porcentajeCIFinventarioFinal, porcentajeCCinventarioFinal, unidadesTerminadas, costoTransferidoPorUnidad, porCC);
+			departament.calcularCostos();
+	}
 	
 	
 	
 	public static void main(String[] args) {
-		Company company = new Company("company sa", 1);
+		Company company = new Company();
 		Departament dp = new Departament(15500, 1020000, 820000, 800000, 0, 100, 0, 0, 65, 36000, 2029200.50 , 2726625, 2627750.75, 0, 3500, 100, 0, 0, 45, 48000, 0, true);
 		
 		dp.calcularCostos();
