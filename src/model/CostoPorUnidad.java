@@ -1,79 +1,89 @@
 package model;
 
-public class CostForUnit {
+public class CostoPorUnidad {
+// CALLESE VIEJO LESBIANO 
+	private double costoMDporUnidad;
+	private double costoMODporUnidad;
+	private double costoCIFporUnidad;
+	private double totalCostoPorUnidad;
+	private double costoTransferido;
+	
+	private boolean porCC;
 
-	private double DirectMaterialCostUnit;
-	private double DirectWorkforceCostUnit;
-	private double indirectManufacturingCostsUnit;
-	private double totalCostsForUnit;
-	private double costTransferred;
-	
-	
-	private double costMD;
-	private double costMOD;
-	private double costCIF;
-	
-	private double unitMD;
-	private double unitMOD;
-	private double unitCIF;
-	
-	
-	
-	public CostForUnit(double directMaterial, double md, double directWorkforce, double mod, double indirectManufacturingCosts, double cif, double costTransferredPerUnit) {
-		super();
-		this.costMD = directMaterial;
-		this.unitMD = md;
-		this.costMOD = directWorkforce;
-		this.unitMOD = mod;
-		this.costCIF = indirectManufacturingCosts;
-		this.unitCIF = cif;
-		this.costTransferred = costTransferredPerUnit;
-		
-		costForUnit();
+	public CostoPorUnidad(boolean porCC ) {	
+		this.porCC = porCC;
 	}
 	
-	
-	public void costForUnit() {
-		DirectMaterialCostUnit = costMD/unitMD ;
-		DirectWorkforceCostUnit = costMOD/unitMOD;
-		indirectManufacturingCostsUnit = costCIF/unitCIF; 
-		
-		totalCostsForUnit = DirectMaterialCostUnit + DirectWorkforceCostUnit + indirectManufacturingCostsUnit + costTransferred;
+	public void costoPorUnidadMD(double MDprecio, double unidadesMD) {
+		costoMDporUnidad = MDprecio/unidadesMD;
 	}
+	public void costoPorUnidadMOD(double MODprecio, double unidadesMOD, double unidadesCC) {
+		
+		if(porCC) {
+			costoMODporUnidad = MODprecio/unidadesCC;			
+		}else {
+			costoMODporUnidad = MODprecio/unidadesMOD;	
+		}
+	}
+	public void costoPorUnidadCIF(double CIFprecio, double unidadesCIF, double unidadesCC) {
+		
+		if(porCC) {
+			costoCIFporUnidad = CIFprecio/unidadesCC;			
+		}else {
+			costoCIFporUnidad = CIFprecio/unidadesCIF;	
+		}
+	}
+	public void totalCostoPorUnidad(double costoTransferidoPorUnidad){
+		totalCostoPorUnidad  = costoTransferido + costoMDporUnidad + costoMODporUnidad + costoCIFporUnidad ;
+	}
+
+	
+	
+	//Set and Get
+	public double getCostoMDporUnidad() {
+		return costoMDporUnidad;
+	}
+
+	public void setCostoMDporUnidad(double costoMDporUnidad) {
+		this.costoMDporUnidad = costoMDporUnidad;
+	}
+
+	public double getCostoMODporUnidad() {
+		return costoMODporUnidad;
+	}
+
+	public void setCostoMODporUnidad(double costoMODporUnidad) {
+		this.costoMODporUnidad = costoMODporUnidad;
+	}
+
+	public double getCostoCIFporUnidad() {
+		return costoCIFporUnidad;
+	}
+
+	public void setCostoCIFporUnidad(double costoCIFporUnidad) {
+		this.costoCIFporUnidad = costoCIFporUnidad;
+	}
+
+	public double getTotalCostoPorUnidad() {
+		return totalCostoPorUnidad;
+	}
+
+	public void setTotalCostoPorUnidad(double totalCostoPorUnidad) {
+		this.totalCostoPorUnidad = totalCostoPorUnidad;
+	}
+
+	public double getCostoTransferido() {
+		return costoTransferido;
+	}
+
+	public void setCostoTransferido(double costoTransferido) {
+		this.costoTransferido = costoTransferido;
+	}
+
+	
+	
 	
 
-	public double getDirectMaterialCostUnit() {
-		return DirectMaterialCostUnit;
-	}
-	public void setDirectMaterialCostUnit(double directMaterialCostUnit) {
-		DirectMaterialCostUnit = directMaterialCostUnit;
-	}
-	public double getDirectWorkforceCostUnit() {
-		return DirectWorkforceCostUnit;
-	}
-	public void setDirectWorkforceCostUnit(double directWorkforceCostUnit) {
-		DirectWorkforceCostUnit = directWorkforceCostUnit;
-	}
-	public double getIndirectManufacturingCostsUnit() {
-		return indirectManufacturingCostsUnit;
-	}
-	public void setIndirectManufacturingCostsUnit(double indirectManufacturingCostsUnit) {
-		this.indirectManufacturingCostsUnit = indirectManufacturingCostsUnit;
-	}
-	public double getTotalCostsForUnit() {
-		return totalCostsForUnit;
-	}
-	public void setTotalCostsForUnit(double totalCostsForUnit) {
-		this.totalCostsForUnit = totalCostsForUnit;
-	}
-	public double getCostTransferred() {
-		return costTransferred;
-	}
-	public void setCostTransferred(double costTransferred) {
-		this.costTransferred = costTransferred;
-	}
-	
-	
 	
 	
 }

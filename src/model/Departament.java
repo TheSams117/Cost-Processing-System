@@ -1,217 +1,303 @@
 package model;
 
 public class Departament {
-	
-	
-	private double initialInventory;
-	private double InitialInventorydirectMaterial;
-	private double InitialInventorydirectWorkforce;
-	private double InitialInventoryindirectManufacturingCosts;
-	
-	
-	private double productOnProcess;
-	private double directMaterial;
-	private double directWorkforce;
-	private double indirectManufacturingCosts;
-	
-	private double finalInventory;
-	
+	//hOLA QUIEN TIENE HAMBRE=?
+	private double inventarioInicialUnidades;
+	private double MDinvenrarioInicial;
+	private double MODinventarioInicial;
+	private double CIFinventarioInicial;
 
-	private double initialDirectMaterialPercentage;
-	private double initialDirectWorkforcePercentage;
-	private double initialIndirectManufacturingCostsPercentage;
-	private double finalDirectMaterialPercentage;
-	private double finalDirectWorkforcePercentage;
-	private double finalIndirectManufacturingCostsPercentage;
-	private double finishedUnits;
 	
+	private double porcentajeMDinventarioInicial;
+	private double porcentajeMODinventarioInicial;
+	private double porcentajeCIFinventarioInicial;
+	private double porcentajeCCinventarioIncial;
 	
-	private PhysicalFlow physicalFlow;
-	private CostForUnit costForUnit;
-	private AssignmentOfCost assignmentOfCost;
+	private double productoEnProceso;
+	private double MD;
+	private double MOD;
+	private double CIF;
 	
-	private double costTransferredPerUnit;
+	private double inventarioFinal;
+	private double porcentajeMDinventarioFinal;
+	private double porcentajeMODinventarioFinal;
+	private double porcentajeCIFinventarioFinal;
+	private double porcentajeCCinventarioFinal;
 	
+	private double unidadesTerminadas;
 	
+	private FlujoFisico flujoFisico;
+	private CostoPorUnidad costoPorUnidad;
+	private AsignacionDeCostos asignacionDeCostos;
 	
+	private double costoTransferidoPorUnidad;
 	
-	public Departament(double initialInventory, double initialInventorydirectMaterial,
-			double initialInventorydirectWorkforce, double initialInventoryindirectManufacturingCosts,
-			double productOnProcess, double directMaterial, double directWorkforce, double indirectManufacturingCosts,
-			double finalInventory, double initialDirectMaterialPercentage, double initialDirectWorkforcePercentage,
-			double initialIndirectManufacturingCostsPercentage, double finalDirectMaterialPercentage,
-			double finalDirectWorkforcePercentage, double finalIndirectManufacturingCostsPercentage,
-			double finishedUnits, double costTransferredPerUnit) {
+	public Departament(double inventarioInicialUnidades, double mDinvenrarioInicial, double mODinventarioInicial,
+			double cIFinventarioInicial, double cCinventarioIncial, double porcentajeMDinventarioInicial,
+			double porcentajeMODinventarioInicial, double porcentajeCIFinventarioInicial,
+			double porcentajeCCinventarioIncial, double productoEnProceso, double mD, double mOD, double cIF, double cC,
+			double inventarioFinal, double porcentajeMDinventarioFinal, double porcentajeMODinventarioFinal,
+			double porcentajeCIFinventarioFinal, double porcentajeCCinventarioFinal, double unidadesTerminadas,
+			double costoTransferidoPorUnidad, boolean porCC) {
 		super();
-		this.initialInventory = initialInventory;
-		InitialInventorydirectMaterial = initialInventorydirectMaterial;
-		InitialInventorydirectWorkforce = initialInventorydirectWorkforce;
-		InitialInventoryindirectManufacturingCosts = initialInventoryindirectManufacturingCosts;
-		this.productOnProcess = productOnProcess;
-		this.directMaterial = directMaterial;
-		this.directWorkforce = directWorkforce;
-		this.indirectManufacturingCosts = indirectManufacturingCosts;
-		this.finalInventory = finalInventory;
-		this.initialDirectMaterialPercentage = initialDirectMaterialPercentage;
-		this.initialDirectWorkforcePercentage = initialDirectWorkforcePercentage;
-		this.initialIndirectManufacturingCostsPercentage = initialIndirectManufacturingCostsPercentage;
-		this.finalDirectMaterialPercentage = finalDirectMaterialPercentage;
-		this.finalDirectWorkforcePercentage = finalDirectWorkforcePercentage;
-		this.finalIndirectManufacturingCostsPercentage = finalIndirectManufacturingCostsPercentage;
-		this.finishedUnits = finishedUnits;
-		this.costTransferredPerUnit = costTransferredPerUnit;
+		this.inventarioInicialUnidades = inventarioInicialUnidades;
+		MDinvenrarioInicial = mDinvenrarioInicial;
+		MODinventarioInicial = mODinventarioInicial;
+		CIFinventarioInicial = cIFinventarioInicial;
+//		CCinventarioIncial = cCinventarioIncial;
+		this.porcentajeMDinventarioInicial = porcentajeMDinventarioInicial;
+		this.porcentajeMODinventarioInicial = porcentajeMODinventarioInicial;
+		this.porcentajeCIFinventarioInicial = porcentajeCIFinventarioInicial;
+		this.porcentajeCCinventarioIncial = porcentajeCCinventarioIncial;
+		this.productoEnProceso = productoEnProceso;
+		MD = mD;
+		MOD = mOD;
+		CIF = cIF;
+//		CC = cC;
+		this.inventarioFinal = inventarioFinal;
+		this.porcentajeMDinventarioFinal = porcentajeMDinventarioFinal;
+		this.porcentajeMODinventarioFinal = porcentajeMODinventarioFinal;
+		this.porcentajeCIFinventarioFinal = porcentajeCIFinventarioFinal;
+		this.porcentajeCCinventarioFinal = porcentajeCCinventarioFinal;
+		this.unidadesTerminadas = unidadesTerminadas;
+		this.costoTransferidoPorUnidad = costoTransferidoPorUnidad;
 		
-		
-		relations();
+		flujoFisico = new FlujoFisico(porCC);
+		costoPorUnidad = new CostoPorUnidad(porCC);
+		asignacionDeCostos = new AsignacionDeCostos(porCC);
 	}
 
-
-	public void relations() {
+	public void calcularCostos() {
+		//flujo
+		flujoFisico.unidadesEnProceso(inventarioInicialUnidades, productoEnProceso); 
 		
-		this.physicalFlow = new PhysicalFlow(this.initialInventory, this.productOnProcess, (this.productOnProcess-this.finalInventory), this.finalInventory , initialDirectMaterialPercentage, initialDirectWorkforcePercentage, initialIndirectManufacturingCostsPercentage, finalDirectMaterialPercentage, finalDirectWorkforcePercentage, finalIndirectManufacturingCostsPercentage);
+		flujoFisico.unidadesComenzadasYterminadas(productoEnProceso-inventarioFinal);
+				
+		//Produccion Equivalente
+		flujoFisico.totalUnidadesAcostear(inventarioInicialUnidades, inventarioFinal);
+		flujoFisico.produccionEquivalenteInventarioInicial(porcentajeMDinventarioInicial,porcentajeMODinventarioInicial,porcentajeCIFinventarioInicial, porcentajeCCinventarioIncial, inventarioInicialUnidades);
+		flujoFisico.produccionEquivalenteInventarioFinal(porcentajeMDinventarioFinal,porcentajeMODinventarioFinal,porcentajeCIFinventarioFinal, porcentajeCCinventarioFinal , inventarioFinal);
+		flujoFisico.unidadesAcostearMD();
+		flujoFisico.unidadesAcostearM0D();
+		flujoFisico.unidadesAcostearCIF();
+		flujoFisico.unidadesAcostearCC();
 		
-		double md = physicalFlow.getUnitsToPayDirectMaterial();
-		double mod = physicalFlow.getUnitsToPayDirectWorkforce();
-		double cif = physicalFlow.getUnitsToPayIndirectManufacturingCosts();
 		
-		this.costForUnit = new CostForUnit(this.directMaterial, md, this.directWorkforce, mod, this.indirectManufacturingCosts, cif, this.costTransferredPerUnit );
+		//costo por Unidad
+		costoPorUnidad.costoPorUnidadMD(MD, flujoFisico.getUnidadesAcostearMD());
+		costoPorUnidad.costoPorUnidadMOD(MOD, flujoFisico.getUnidadesAcostearMOD(), flujoFisico.getUnidadesAcostearCC());
+		costoPorUnidad.costoPorUnidadCIF(CIF, flujoFisico.getUnidadesAcostearCIF(), flujoFisico.getUnidadesAcostearCC());
+		costoPorUnidad.totalCostoPorUnidad(costoTransferidoPorUnidad);
 		
-		double InitialInvMd = physicalFlow.getInitialDirectMaterialPP();
-		double InitialInvMod = physicalFlow.getInitialDirectWorkforcePP();
-		double InitialInvCif = physicalFlow.getInitialIndirectManufacturingCostsPP();
-		
-		double CostUndMd = costForUnit.getDirectMaterialCostUnit();
-		double CostUndMod = costForUnit.getDirectWorkforceCostUnit();
-		double CostUndCif = costForUnit.getIndirectManufacturingCostsUnit();
-		
-		double startedAndFinished = physicalFlow.getStartedAndFinished();
-		double  costUnd = costForUnit.getTotalCostsForUnit();
-		
-		double finalInvlMd = physicalFlow.getInitialDirectMaterialPP();
-		double finalInvMod = physicalFlow.getInitialDirectWorkforcePP();
-		double finalInvCif = physicalFlow.getInitialIndirectManufacturingCostsPP();
-		
-		this.assignmentOfCost = new AssignmentOfCost(this.InitialInventorydirectMaterial, this.InitialInventorydirectWorkforce, this.InitialInventoryindirectManufacturingCosts, InitialInvMd, InitialInvMod, InitialInvCif, CostUndMd, CostUndMod, CostUndCif, startedAndFinished, costUnd, finalInvlMd, finalInvMod, finalInvCif);
+		//Asignacion de costos
+		asignacionDeCostos.totalCostoProductoTerminado(MDinvenrarioInicial, MODinventarioInicial, CIFinventarioInicial, flujoFisico.getMDequivalenteInventarioInicial(), costoPorUnidad.getCostoMDporUnidad(), flujoFisico.getMODequivalenteInventarioInicial(), costoPorUnidad.getCostoMODporUnidad(), flujoFisico.getCIFequivalenteInventarioInicial(), costoPorUnidad.getCostoCIFporUnidad(), flujoFisico.getCCequivalenteInventarioInicial(), (productoEnProceso-inventarioFinal), costoPorUnidad.getTotalCostoPorUnidad());
+		asignacionDeCostos.totalCostoProductoEnProceso(inventarioFinal, costoTransferidoPorUnidad, flujoFisico.getMDequivalenteInventarioFinal(), costoPorUnidad.getCostoMDporUnidad(), flujoFisico.getMODequivalenteInventarioFinal(), costoPorUnidad.getCostoMODporUnidad(), flujoFisico.getCIFequivalenteInventarioFinal(), costoPorUnidad.getCostoCIFporUnidad(), flujoFisico.getCCequivalenteInventarioFinal());
+			
 		
 	}
 	
 	
-	public double getDirectMaterial() {
-		return directMaterial;
-	}
-	public void setDirectMaterial(double directMaterial) {
-		this.directMaterial = directMaterial;
-	}
-	public double getDirectWorkforce() {
-		return directWorkforce;
-	}
-	public void setDirectWorkforce(double directWorkforce) {
-		this.directWorkforce = directWorkforce;
-	}
-	public double getIndirectManufacturingCosts() {
-		return indirectManufacturingCosts;
-	}
-	public void setIndirectManufacturingCosts(double indirectManufacturingCosts) {
-		this.indirectManufacturingCosts = indirectManufacturingCosts;
-	}
-	public double getInitialInventory() {
-		return initialInventory;
-	}
-	public void setInitialInventory(double initialInventory) {
-		this.initialInventory = initialInventory;
-	}
-	public double getProductOnProcess() {
-		return productOnProcess;
-	}
-	public void setProductOnProcess(double productOnProcess) {
-		this.productOnProcess = productOnProcess;
-	}
-	public double getFinalInventory() {
-		return finalInventory;
-	}
-	public void setFinalInventory(double finalInventory) {
-		this.finalInventory = finalInventory;
-	}
-	public double getInitialDirectMaterialPercentage() {
-		return initialDirectMaterialPercentage;
-	}
-	public void setInitialDirectMaterialPercentage(double initialDirectMaterialPercentage) {
-		this.initialDirectMaterialPercentage = initialDirectMaterialPercentage;
-	}
-	public double getInitialDirectWorkforcePercentage() {
-		return initialDirectWorkforcePercentage;
-	}
-	public void setInitialDirectWorkforcePercentage(double initialDirectWorkforcePercentage) {
-		this.initialDirectWorkforcePercentage = initialDirectWorkforcePercentage;
-	}
-	public double getInitialIndirectManufacturingCostsPercentage() {
-		return initialIndirectManufacturingCostsPercentage;
-	}
-	public void setInitialIndirectManufacturingCostsPercentage(double initialIndirectManufacturingCostsPercentage) {
-		this.initialIndirectManufacturingCostsPercentage = initialIndirectManufacturingCostsPercentage;
-	}
-	public double getFinalDirectMaterialPercentage() {
-		return finalDirectMaterialPercentage;
-	}
-	public void setFinalDirectMaterialPercentage(double finalDirectMaterialPercentage) {
-		this.finalDirectMaterialPercentage = finalDirectMaterialPercentage;
-	}
-	public double getFinalDirectWorkforcePercentage() {
-		return finalDirectWorkforcePercentage;
-	}
-	public void setFinalDirectWorkforcePercentage(double finalDirectWorkforcePercentage) {
-		this.finalDirectWorkforcePercentage = finalDirectWorkforcePercentage;
-	}
-	public double getFinalIndirectManufacturingCostsPercentage() {
-		return finalIndirectManufacturingCostsPercentage;
-	}
-	public void setFinalIndirectManufacturingCostsPercentage(double finalIndirectManufacturingCostsPercentage) {
-		this.finalIndirectManufacturingCostsPercentage = finalIndirectManufacturingCostsPercentage;
+
+
+	public double getInventarioInicialUnidades() {
+		return inventarioInicialUnidades;
 	}
 
 
-	public double getFinishedUnits() {
-		return finishedUnits;
+	public void setInventarioInicialUnidades(double inventarioInicialUnidades) {
+		this.inventarioInicialUnidades = inventarioInicialUnidades;
 	}
 
 
-	public void setFinishedUnits(double finishedUnits) {
-		this.finishedUnits = finishedUnits;
+	public double getMDinvenrarioInicial() {
+		return MDinvenrarioInicial;
 	}
 
 
-	public PhysicalFlow getPhysicalFlow() {
-		return physicalFlow;
+	public void setMDinvenrarioInicial(double mDinvenrarioInicial) {
+		MDinvenrarioInicial = mDinvenrarioInicial;
 	}
 
 
-	public void setPhysicalFlow(PhysicalFlow physicalFlow) {
-		this.physicalFlow = physicalFlow;
+	public double getMODinventarioInicial() {
+		return MODinventarioInicial;
 	}
 
 
-	public CostForUnit getCostForUnit() {
-		return costForUnit;
+	public void setMODinventarioInicial(double mODinventarioInicial) {
+		MODinventarioInicial = mODinventarioInicial;
 	}
 
 
-	public void setCostForUnit(CostForUnit costForUnit) {
-		this.costForUnit = costForUnit;
+	public double getCIFinventarioInicial() {
+		return CIFinventarioInicial;
 	}
 
 
-	public AssignmentOfCost getAssignmentOfCost() {
-		return assignmentOfCost;
+	public void setCIFinventarioInicial(double cIFinventarioInicial) {
+		CIFinventarioInicial = cIFinventarioInicial;
 	}
 
 
-	public void setAssignmentOfCost(AssignmentOfCost assignmentOfCost) {
-		this.assignmentOfCost = assignmentOfCost;
+	public double getProductoEnProceso() {
+		return productoEnProceso;
 	}
 
 
+	public void setProductoEnProceso(double productoEnProceso) {
+		this.productoEnProceso = productoEnProceso;
+	}
+
+
+	public double getMD() {
+		return MD;
+	}
+
+
+	public void setMD(double mD) {
+		MD = mD;
+	}
+
+
+	public double getMOD() {
+		return MOD;
+	}
+
+
+	public void setMOD(double mOD) {
+		MOD = mOD;
+	}
+
+
+	public double getCIF() {
+		return CIF;
+	}
+
+
+	public void setCIF(double cIF) {
+		CIF = cIF;
+	}
+
+
+	public double getInventarioFinal() {
+		return inventarioFinal;
+	}
+
+
+	public void setInventarioFinal(double inventarioFinal) {
+		this.inventarioFinal = inventarioFinal;
+	}
+
+
+	public double getPorcentajeMDinventarioInicial() {
+		return porcentajeMDinventarioInicial;
+	}
+
+
+	public void setPorcentajeMDinventarioInicial(double porcentajeMDinventarioInicial) {
+		this.porcentajeMDinventarioInicial = porcentajeMDinventarioInicial;
+	}
+
+
+	public double getPorcentajeMODinventarioInicial() {
+		return porcentajeMODinventarioInicial;
+	}
+
+
+	public void setPorcentajeMODinventarioInicial(double porcentajeMODinventarioInicial) {
+		this.porcentajeMODinventarioInicial = porcentajeMODinventarioInicial;
+	}
+
+
+	public double getPorcentajeCIFinventarioInicial() {
+		return porcentajeCIFinventarioInicial;
+	}
+
+
+	public void setPorcentajeCIFinventarioInicial(double porcentajeCIFinventarioInicial) {
+		this.porcentajeCIFinventarioInicial = porcentajeCIFinventarioInicial;
+	}
+
+
+	public double getPorcentajeMDinventarioFinal() {
+		return porcentajeMDinventarioFinal;
+	}
+
+
+	public void setPorcentajeMDinventarioFinal(double porcentajeMDinventarioFinal) {
+		this.porcentajeMDinventarioFinal = porcentajeMDinventarioFinal;
+	}
+
+
+	public double getPorcentajeMODinventarioFinal() {
+		return porcentajeMODinventarioFinal;
+	}
+
+
+	public void setPorcentajeMODinventarioFinal(double porcentajeMODinventarioFinal) {
+		this.porcentajeMODinventarioFinal = porcentajeMODinventarioFinal;
+	}
+
+
+	public double getPorcentajeCIFinventarioFinal() {
+		return porcentajeCIFinventarioFinal;
+	}
+
+
+	public void setPorcentajeCIFinventarioFinal(double porcentajeCIFinventarioFinal) {
+		this.porcentajeCIFinventarioFinal = porcentajeCIFinventarioFinal;
+	}
+
+
+	public double getInventarioFinalUnidades() {
+		return unidadesTerminadas;
+	}
+
+
+	public void setInventarioFinalUnidades(double inventarioFinalUnidades) {
+		this.unidadesTerminadas = inventarioFinalUnidades;
+	}
+
+
+	public FlujoFisico getFlujoFisico() {
+		return flujoFisico;
+	}
+
+
+	public void setFlujoFisico(FlujoFisico flujoFisico) {
+		this.flujoFisico = flujoFisico;
+	}
+
+
+	public CostoPorUnidad getCostoPorUnidad() {
+		return costoPorUnidad;
+	}
+
+
+	public void setCostoPorUnidad(CostoPorUnidad costoPorUnidad) {
+		this.costoPorUnidad = costoPorUnidad;
+	}
+
+
+	public AsignacionDeCostos getAsignacionDeCostos() {
+		return asignacionDeCostos;
+	}
+
+
+	public void setAsignacionDeCostos(AsignacionDeCostos asignacionDeCostos) {
+		this.asignacionDeCostos = asignacionDeCostos;
+	}
+
+
+	public double getCostoTransferidoPorUnidad() {
+		return costoTransferidoPorUnidad;
+	}
+
+
+	public void setCostoTransferidoPorUnidad(double costoTransferidoPorUnidad) {
+		this.costoTransferidoPorUnidad = costoTransferidoPorUnidad;
+	}
 	
-	
-	
+
 	
 }

@@ -1,107 +1,191 @@
 package model;
 
-public class AssignmentOfCost {
+public class AsignacionDeCostos {
+	//Sergio se la come
+	private double totalcostosProductoTerminado;
 	
-//	private double finishedProduct;
-	private double initialInventory;
+	private double precioInventarioInicial;
+	private double precioInventarioInicialMD;
+	private double precioInventarioInicialMOD;
+	private double precioInvetnarioIncialCIF;
+	private double precioIniciadasYterminadas;
 	
-	private double initialInventoryMD;
-	private double initialInventoryMOD;
-	private double initialInventoryCIF;
-	
-	private double startedAndFinished;
-	private double totalCostsFinishedProduct;
-	private double totalProductOnProcess;
-	
-	private double productOnProcessMD;
-	private double productOnProcessMOD;
-	private double productOnProcessCIF;
+	private double totalcostosProductoEnProceso;
+	private double productoEnProceso;
+	private double productoEnProcesoMD;
+	private double productoEnProcesoMOD;
+	private double productoEnProcesoCIF;
 
 	
-	public AssignmentOfCost(double initialInventorydirectMaterial, double initialInventorydirectWorkforce, double initialInventoryindirectManufacturingCosts, double initialInvMd, double initialInvMod, double initialInvCif, double costUndMd, double costUndMod, double costUndCif, double startedAndFinished2, double costUnd, double finalInvlMd, double finalInvMod, double finalInvCif) {
-		super();
-		this.initialInventory = initialInventorydirectMaterial+initialInventorydirectWorkforce+initialInventoryindirectManufacturingCosts;
-		this.initialInventoryMD = initialInvMd*costUndMd;
-		this.initialInventoryMOD = initialInvMod*costUndMod;
-		this.initialInventoryCIF = initialInvCif*costUndCif;
-		this.startedAndFinished = startedAndFinished2*costUnd;
+	private boolean porCC;
 		
-		this.productOnProcessMD = finalInvlMd*costUndMd;
-		this.productOnProcessMOD = finalInvMod*costUndMod;
-		this.productOnProcessCIF = finalInvCif*costUndCif;
-		assignmentOfCost();
+	public AsignacionDeCostos(boolean porCC) {
+		this.porCC = porCC;
+	}
+	
+	
+	public void totalCostoProductoTerminado(double precioMD, double precioMOD, double precioCIF,  
+			double equivalenteInicialMD, double costoUnidadMD, double equivalenteInicialMOD, double costoUnidadMOD, 
+			double equivalenteInicialCIF , double costoUnidadCIF, double equivalenteIncialCC,
+			double comenzadasYterminadas, double costoTotalPorUnidad) {
 		
+		 precioInventarioInicial =  precioMD + precioMOD + precioCIF;
+		 
+		 precioInventarioInicialMD = equivalenteInicialMD * costoUnidadMD ;
+		 
+		 if(porCC) {
+			 precioInventarioInicialMOD = equivalenteIncialCC * costoUnidadMOD;			 			 
+		 }else {
+			 precioInventarioInicialMOD = equivalenteInicialMOD * costoUnidadMOD;			 
+		 }
+		 
+		 if(porCC) {
+			 precioInvetnarioIncialCIF = equivalenteIncialCC * costoUnidadCIF;		
+		 }else {
+			 precioInvetnarioIncialCIF = equivalenteInicialCIF* costoUnidadCIF;			 
+		 }
+		
+		 precioIniciadasYterminadas = comenzadasYterminadas * costoTotalPorUnidad;
+		 
+		 totalcostosProductoTerminado = precioInventarioInicial + precioInventarioInicialMD + precioInventarioInicialMOD + precioInvetnarioIncialCIF + precioIniciadasYterminadas;
+		 
 	}
 	
-	public void assignmentOfCost() {
-		this.totalCostsFinishedProduct = this.initialInventory+this.initialInventoryMD+this.initialInventoryMOD+this.initialInventoryCIF+this.startedAndFinished;
-		this.totalProductOnProcess = this.productOnProcessMD+this.productOnProcessMOD+this.productOnProcessCIF;		
-	}
+	public void totalCostoProductoEnProceso(double unidadesInventarioFinal, double costoPorUnidadAgregado,double equivalenteFinalMD,
+			double costoUnidadMD, double equivalenteFinalMOD, double costoUnidadMOD, 
+			double equivalenteFinalCIF,double costoUnidadCIF,  double equivalenteFinalCC) {
+		
+		productoEnProceso = (unidadesInventarioFinal * costoPorUnidadAgregado) == 0?unidadesInventarioFinal:unidadesInventarioFinal * costoPorUnidadAgregado;
+		productoEnProcesoMD =  equivalenteFinalMD * costoUnidadMD ;
+
+		if(porCC) {
+			productoEnProcesoMOD = equivalenteFinalCC * costoUnidadMOD;			
+		}else {
+			productoEnProcesoMOD = equivalenteFinalMOD * costoUnidadMOD;		
+		}
+		
+		if(porCC) {
+			productoEnProcesoCIF = equivalenteFinalCC * costoUnidadCIF;			
+		}else {
+			productoEnProcesoCIF = equivalenteFinalCIF * costoUnidadCIF;			
+		}
 	
+		totalcostosProductoEnProceso = productoEnProcesoMD + productoEnProcesoMOD + productoEnProcesoCIF  +((productoEnProceso != unidadesInventarioFinal)?productoEnProceso:0);
+	}
+
+
 	
-	public double getInitialInventoy() {
-		return initialInventory;
+	//Set and get
+	public double getTotalcostosProductoTerminado() {
+		return totalcostosProductoTerminado;
 	}
-	public void setInitialInventoy(double initialInventoy) {
-		this.initialInventory = initialInventoy;
+
+
+	public void setTotalcostosProductoTerminado(double totalcostosProductoTerminado) {
+		this.totalcostosProductoTerminado = totalcostosProductoTerminado;
 	}
-	public double getInitialInventoyMD() {
-		return initialInventoryMD;
+
+
+	public double getPrecioInventarioInicial() {
+		return precioInventarioInicial;
 	}
-	public void setInitialInventoyMD(double initialInventoyMD) {
-		this.initialInventoryMD = initialInventoyMD;
+
+
+	public void setPrecioInventarioInicial(double precioInventarioInicial) {
+		this.precioInventarioInicial = precioInventarioInicial;
 	}
-	public double getInitialInventoyMOD() {
-		return initialInventoryMOD;
+
+
+	public double getPrecioInventarioInicialMD() {
+		return precioInventarioInicialMD;
 	}
-	public void setInitialInventoyMOD(double initialInventoyMOD) {
-		this.initialInventoryMOD = initialInventoyMOD;
+
+
+	public void setPrecioInventarioInicialMD(double precioInventarioInicialMD) {
+		this.precioInventarioInicialMD = precioInventarioInicialMD;
 	}
-	public double getInitialInventoyCIF() {
-		return initialInventoryCIF;
+
+
+	public double getPrecioInventarioInicialMOD() {
+		return precioInventarioInicialMOD;
 	}
-	public void setInitialInventoyCIF(double initialInventoyCIF) {
-		this.initialInventoryCIF = initialInventoyCIF;
+
+
+	public void setPrecioInventarioInicialMOD(double precioInventarioInicialMOD) {
+		this.precioInventarioInicialMOD = precioInventarioInicialMOD;
 	}
-	public double getStartedAndFinished() {
-		return startedAndFinished;
+
+
+	public double getPrecioInvetnarioIncialCIF() {
+		return precioInvetnarioIncialCIF;
 	}
-	public void setStartedAndFinished(double startedAndFinished) {
-		this.startedAndFinished = startedAndFinished;
+
+
+	public void setPrecioInvetnarioIncialCIF(double precioInvetnarioIncialCIF) {
+		this.precioInvetnarioIncialCIF = precioInvetnarioIncialCIF;
 	}
-	public double getTotalCostsFinishedProduct() {
-		return totalCostsFinishedProduct;
+
+	public double getPrecioIniciadasYterminadas() {
+		return precioIniciadasYterminadas;
 	}
-	public void setTotalCostsFinishedProduct(double totalCostsFinishedProduct) {
-		this.totalCostsFinishedProduct = totalCostsFinishedProduct;
+
+
+	public void setPrecioIniciadasYterminadas(double precioIniciadasYterminadas) {
+		this.precioIniciadasYterminadas = precioIniciadasYterminadas;
 	}
-	public double getProductOnProcess() {
-		return totalProductOnProcess;
+
+
+	public double getTotalcostosProductoEnProceso() {
+		return totalcostosProductoEnProceso;
 	}
-	public void setProductOnProcess(double productOnProcess) {
-		this.totalProductOnProcess = productOnProcess;
+
+
+	public void setTotalcostosProductoEnProceso(double totalcostosProductoEnProceso) {
+		this.totalcostosProductoEnProceso = totalcostosProductoEnProceso;
 	}
-	public double getProductOnProcessMD() {
-		return productOnProcessMD;
+
+
+	public double getProductoEnProceso() {
+		return productoEnProceso;
 	}
-	public void setProductOnProcessMD(double productOnProcessMD) {
-		this.productOnProcessMD = productOnProcessMD;
+
+
+	public void setProductoEnProceso(double productoEnProceso) {
+		this.productoEnProceso = productoEnProceso;
 	}
-	public double getProductOnProcessMOD() {
-		return productOnProcessMOD;
+
+
+	public double getProductoEnProcesoMD() {
+		return productoEnProcesoMD;
 	}
-	public void setProductOnProcessMOD(double productOnProcessMOD) {
-		this.productOnProcessMOD = productOnProcessMOD;
+
+
+	public void setProductoEnProcesoMD(double productoEnProcesoMD) {
+		this.productoEnProcesoMD = productoEnProcesoMD;
 	}
-	public double getProductOnProcessCIF() {
-		return productOnProcessCIF;
+
+
+	public double getProductoEnProcesoMOD() {
+		return productoEnProcesoMOD;
 	}
-	public void setProductOnProcessCIF(double productOnProcessCIF) {
-		this.productOnProcessCIF = productOnProcessCIF;
+
+
+	public void setProductoEnProcesoMOD(double productoEnProcesoMOD) {
+		this.productoEnProcesoMOD = productoEnProcesoMOD;
 	}
-	
-	
-	
+
+
+	public double getProductoEnProcesoCIF() {
+		return productoEnProcesoCIF;
+	}
+
+
+	public void setProductoEnProcesoCIF(double productoEnProcesoCIF) {
+		this.productoEnProcesoCIF = productoEnProcesoCIF;
+	}
+
+
+
 	
 
 }
