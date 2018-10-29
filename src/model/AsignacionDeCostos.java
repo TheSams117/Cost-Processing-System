@@ -1,7 +1,7 @@
 package model;
 
 public class AsignacionDeCostos {
-	//Sergio se la come
+	
 	private double totalcostosProductoTerminado;
 	
 	private double precioInventarioInicial;

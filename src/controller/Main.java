@@ -8,29 +8,27 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.Company;
 
 public class Main extends Application {
 	private static Stage primaryStage;
-	private Company company;
-	private AnchorPane starWindow;
-	private static AnchorPane mainWindow;
+	private static int departments;
+	private static Company company;
+	private static AnchorPane window;
 	
 	@Override
 	public void start(Stage primaryStage) {
-		
-		this.primaryStage = primaryStage;
-		this.primaryStage.setTitle("Cost For Process");
+		company = new Company("asdas",12);
+		Main.primaryStage = primaryStage;
+		Main.primaryStage.setTitle("Costos Por Procesos");
 		
 		try {
 			  FXMLLoader loader = new FXMLLoader();
 			  loader.setLocation(Main.class.getResource("/view/startWindow.fxml"));
-			  starWindow = (AnchorPane) loader.load();
+			  window = (AnchorPane) loader.load();
 			  
-			  Scene scene = new Scene(starWindow);
+			  Scene scene = new Scene(window);
 	          primaryStage.setScene(scene);
 	          primaryStage.setResizable(false);
 	          primaryStage.getIcons().add(new Image(getClass().getResource("/view/icon.jpg").toExternalForm()));
@@ -41,16 +39,16 @@ public class Main extends Application {
 	}
 	
 	public static void costCompany(int departamentsToCost) {
-		System.out.println("Funciona"+departamentsToCost);
+		departments = departamentsToCost;
 		
     	
 		try {
 			FXMLLoader loader=new FXMLLoader();
 			loader.setLocation(Main.class.getResource("/view/MainWindow.fxml"));
-			mainWindow = loader.load();
-			
-			Scene scene2=new Scene(mainWindow);
-			primaryStage.setScene(scene2);
+			window = loader.load();
+			Scene scene=new Scene(window);
+			primaryStage.setScene(scene);
+			primaryStage.centerOnScreen();
 
 			
 		} catch (IOException e) {
@@ -61,12 +59,61 @@ public class Main extends Application {
     		
 	}
 	
+	public static void back() {
+		
+		
+		try {
+			FXMLLoader loader=new FXMLLoader();
+			loader.setLocation(Main.class.getResource("/view/startWindow.fxml"));
+			window = loader.load();
+			Scene scene=new Scene(window);
+			primaryStage.setScene(scene);
+			primaryStage.centerOnScreen();
+
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+    		
+	}
+	
+	public static void calculate() {
+		
+    	
+		try {
+			FXMLLoader loader=new FXMLLoader();
+			loader.setLocation(Main.class.getResource("/view/CalculatetWindow.fxml"));
+			window = loader.load();
+			Scene scene=new Scene(window);
+			primaryStage.setScene(scene);
+			primaryStage.centerOnScreen();
+
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+    		
+	}
+	
+	
+	public static int getDepartments() {
+		return departments;
+	}
+
+	public static void setDepartments(int departments) {
+		Main.departments = departments;
+	}
+	
 	public Stage getPrimaryStage() {
 		return primaryStage;
 	}
 
 	public void setPrimaryStage(Stage primaryStage) {
-		this.primaryStage = primaryStage;
+		Main.primaryStage = primaryStage;
 	}
 
 	public Company getCompany() {
@@ -74,18 +121,17 @@ public class Main extends Application {
 	}
 
 	public void setCompany(Company company) {
-		this.company = company;
+		Main.company = company;
 	}
 
-	public AnchorPane getStarWindow() {
-		return starWindow;
+
+	public static AnchorPane getWindow() {
+		return window;
 	}
 
-	public void setStarWindow(AnchorPane starWindow) {
-		this.starWindow = starWindow;
+	public static void setWindow(AnchorPane window) {
+		Main.window = window;
 	}
-
-	
 
 	public static void main(String[] args) {
 		launch(args);
