@@ -9,14 +9,14 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="671.0" prefWidth="820.0" style="-fx-background-color: WHITE;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainWindowController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="643.0" prefWidth="419.0" style="-fx-background-color: WHITE;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainWindowController">
    <children>
       <Label layoutX="12.0" layoutY="2.0" prefHeight="31.0" prefWidth="239.0" text="Departamentos:">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffffe8" height="623.0" layoutX="12.0" layoutY="37.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" width="396.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffffe8" height="525.0" layoutX="12.0" layoutY="37.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" width="396.0" />
       <TextField fx:id="txtNombreDepartamento1" alignment="CENTER" layoutX="84.0" layoutY="47.0" prefHeight="25.0" prefWidth="283.0" text="Departamento 1" />
       <Separator layoutX="21.0" layoutY="80.0" prefHeight="4.0" prefWidth="378.0" style="-fx-background-color: black;" />
       <Label layoutX="21.0" layoutY="91.0" prefHeight="20.0" prefWidth="314.0" style="-fx-font-style: bold;" text="Inventario incial producto en proceso:">
@@ -129,24 +129,6 @@
             <Font size="13.0" />
          </font>
       </Label>
-      <Label layoutX="20.0" layoutY="561.0" prefHeight="17.0" prefWidth="98.0" text="Material directo:">
-         <font>
-            <Font size="13.0" />
-         </font>
-      </Label>
-      <TextField fx:id="txtMdPrecioFinDepartamento1" layoutX="119.0" layoutY="558.0" prefHeight="25.0" prefWidth="273.0" text="0" />
-      <Label fx:id="textoModFinDepartamento1" layoutX="20.0" layoutY="594.0" text="Mano de obra directa:">
-         <font>
-            <Font size="13.0" />
-         </font>
-      </Label>
-      <TextField fx:id="txtModPrecioFinDepartamento1" layoutX="153.0" layoutY="591.0" prefHeight="25.0" prefWidth="239.0" text="0" />
-      <Label fx:id="textoCifFinDepartamento1" layoutX="20.0" layoutY="627.0" text="Costos indirecto de fabricación:">
-         <font>
-            <Font size="13.0" />
-         </font>
-      </Label>
-      <TextField fx:id="txtCifPrecioFinDepartamento1" layoutX="203.0" layoutY="624.0" prefHeight="25.0" prefWidth="189.0" text="0" />
       <TextField fx:id="txtUnidadesFinDepartamento1" layoutX="81.0" layoutY="494.0" prefHeight="25.0" prefWidth="311.0" text="0" />
       <Label layoutX="20.0" layoutY="528.0" prefHeight="19.0" prefWidth="77.0" text="Porcentajes:">
          <font>
@@ -188,192 +170,17 @@
       </Label>
       <Separator layoutX="184.0" layoutY="526.0" orientation="VERTICAL" prefHeight="25.0" prefWidth="3.0" style="-fx-background-color: black;" />
       <Separator fx:id="lineaFinDepartamento1" layoutX="294.0" layoutY="526.0" orientation="VERTICAL" prefHeight="25.0" prefWidth="3.0" style="-fx-background-color: black;" />
-      <Button fx:id="butCalcularCostos" layoutX="690.0" layoutY="3.0" mnemonicParsing="false" onAction="#butEvento" text="Calcular costos">
+      <Button fx:id="butCalcularCostos" layoutX="144.0" layoutY="601.0" mnemonicParsing="false" onAction="#butEvento" text="Calcular costos">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
       <CheckBox fx:id="chkbCostosDeConversión" layoutX="189.0" layoutY="10.0" mnemonicParsing="false" onAction="#costC" text="Costos de conversión" />
-      <AnchorPane fx:id="contenedorDepartamento2" layoutX="413.0" layoutY="38.0" prefHeight="635.0" prefWidth="407.0">
-         <children>
-            <Rectangle fx:id="rectangulo" arcHeight="5.0" arcWidth="5.0" fill="#ffffffe8" height="623.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" width="396.0" />
-            <TextField fx:id="txtNombreDepartamento2" alignment="CENTER" layoutX="73.0" layoutY="9.0" prefHeight="25.0" prefWidth="283.0" text="Departamento 2" />
-            <Separator fx:id="linea1" layoutX="10.0" layoutY="42.0" prefHeight="4.0" prefWidth="378.0" style="-fx-background-color: black;" />
-            <Label fx:id="textoTitulo1" layoutX="10.0" layoutY="53.0" prefHeight="20.0" prefWidth="314.0" style="-fx-font-style: bold;" text="Inventario incial producto en proceso:">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </Label>
-            <Label fx:id="Unidades1" layoutX="9.0" layoutY="84.0" text="Unidades: ">
-               <font>
-                  <Font size="13.0" />
-               </font>
-            </Label>
-            <Label layoutX="9.0" layoutY="148.0" prefHeight="17.0" prefWidth="98.0" text="Material directo:">
-               <font>
-                  <Font size="13.0" />
-               </font>
-            </Label>
-            <TextField fx:id="txtMdPrecioIniDepartamento2" layoutX="108.0" layoutY="145.0" prefHeight="25.0" prefWidth="273.0" text="0" />
-            <Label fx:id="textoModIniDepartamento2" layoutX="9.0" layoutY="181.0" text="Mano de obra directa:">
-               <font>
-                  <Font size="13.0" />
-               </font>
-            </Label>
-            <TextField fx:id="txtModPrecioIniDepartamento2" layoutX="142.0" layoutY="178.0" prefHeight="25.0" prefWidth="239.0" text="0" />
-            <Label fx:id="textoCifIniDepartamento2" layoutX="9.0" layoutY="214.0" text="Costos indirecto de fabricación:">
-               <font>
-                  <Font size="13.0" />
-               </font>
-            </Label>
-            <TextField fx:id="txtCifPrecioIniDepartamento2" layoutX="192.0" layoutY="211.0" prefHeight="25.0" prefWidth="189.0" text="0" />
-            <TextField fx:id="txtUnidadesIniDepartamento2" layoutX="70.0" layoutY="81.0" prefHeight="25.0" prefWidth="311.0" text="0" />
-            <Label layoutX="9.0" layoutY="115.0" prefHeight="19.0" prefWidth="77.0" text="Porcentajes:">
-               <font>
-                  <Font size="13.0" />
-               </font>
-            </Label>
-            <TextField fx:id="txtMdPorIniDepartamento2" layoutX="116.0" layoutY="113.0" prefHeight="25.0" prefWidth="36.0" text="0" />
-            <Label layoutX="81.0" layoutY="116.0" prefHeight="19.0" prefWidth="36.0" text="MD =">
-               <font>
-                  <Font size="13.0" />
-               </font>
-            </Label>
-            <Label layoutX="157.0" layoutY="116.0" prefHeight="19.0" prefWidth="19.0" text="\%">
-               <font>
-                  <Font size="13.0" />
-               </font>
-            </Label>
-            <TextField fx:id="txtModPorIniDepartamento2" layoutX="227.0" layoutY="113.0" prefHeight="25.0" prefWidth="36.0" text="0" />
-            <Label fx:id="textoModPorIniDepartamento2" layoutX="182.0" layoutY="116.0" prefHeight="19.0" prefWidth="45.0" text="MOD =">
-               <font>
-                  <Font size="13.0" />
-               </font>
-            </Label>
-            <Label layoutX="267.0" layoutY="116.0" prefHeight="19.0" prefWidth="19.0" text="\%">
-               <font>
-                  <Font size="13.0" />
-               </font>
-            </Label>
-            <TextField fx:id="txtCifPorIniDepartamento2" layoutX="325.0" layoutY="113.0" prefHeight="25.0" prefWidth="36.0" text="0" />
-            <Label fx:id="textoCifPorIniDepartamento2" layoutX="292.0" layoutY="116.0" prefHeight="19.0" prefWidth="36.0" text="CIF =">
-               <font>
-                  <Font size="13.0" />
-               </font>
-            </Label>
-            <Label fx:id="textoPorcentajeIniDepartamento2" layoutX="365.0" layoutY="116.0" prefHeight="19.0" prefWidth="19.0" text="\%">
-               <font>
-                  <Font size="13.0" />
-               </font>
-            </Label>
-            <Separator layoutX="173.0" layoutY="113.0" orientation="VERTICAL" prefHeight="25.0" prefWidth="3.0" style="-fx-background-color: black;" />
-            <Separator fx:id="lineaIniDepartamento2" layoutX="283.0" layoutY="113.0" orientation="VERTICAL" prefHeight="25.0" prefWidth="3.0" style="-fx-background-color: black;" />
-            <Separator layoutX="10.0" layoutY="245.0" prefHeight="4.0" prefWidth="378.0" style="-fx-background-color: black;" />
-            <Label layoutX="10.0" layoutY="256.0" prefHeight="20.0" prefWidth="314.0" style="-fx-font-style: bold;" text="Inventario producto comenzado:">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </Label>
-            <Label layoutX="9.0" layoutY="287.0" text="Unidades: ">
-               <font>
-                  <Font size="13.0" />
-               </font>
-            </Label>
-            <Label layoutX="9.0" layoutY="320.0" prefHeight="17.0" prefWidth="98.0" text="Material directo:">
-               <font>
-                  <Font size="13.0" />
-               </font>
-            </Label>
-            <TextField fx:id="txtMdPrecioProceDepartamento2" layoutX="108.0" layoutY="317.0" prefHeight="25.0" prefWidth="273.0" text="0" />
-            <Label fx:id="textoModProceDepartamento2" layoutX="9.0" layoutY="353.0" text="Mano de obra directa:">
-               <font>
-                  <Font size="13.0" />
-               </font>
-            </Label>
-            <TextField fx:id="txtModPrecioProceDepartamento2" layoutX="142.0" layoutY="350.0" prefHeight="25.0" prefWidth="239.0" text="0" />
-            <Label fx:id="textoCifProceDepartamento2" layoutX="9.0" layoutY="386.0" text="Costos indirecto de fabricación:">
-               <font>
-                  <Font size="13.0" />
-               </font>
-            </Label>
-            <TextField fx:id="txtCifPrecioProceDepartamento2" layoutX="192.0" layoutY="383.0" prefHeight="25.0" prefWidth="189.0" text="0" />
-            <TextField fx:id="txtUnidadesProceDepartamento2" layoutX="70.0" layoutY="284.0" prefHeight="25.0" prefWidth="311.0" text="0" />
-            <Separator layoutX="10.0" layoutY="417.0" prefHeight="4.0" prefWidth="378.0" style="-fx-background-color: black;" />
-            <Label layoutX="10.0" layoutY="428.0" prefHeight="20.0" prefWidth="314.0" style="-fx-font-style: bold;" text="Inventario producto final:">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </Label>
-            <Label layoutX="9.0" layoutY="459.0" text="Unidades: ">
-               <font>
-                  <Font size="13.0" />
-               </font>
-            </Label>
-            <Label layoutX="9.0" layoutY="523.0" prefHeight="17.0" prefWidth="98.0" text="Material directo:">
-               <font>
-                  <Font size="13.0" />
-               </font>
-            </Label>
-            <TextField fx:id="txtMdPrecioFinDepartamento2" layoutX="108.0" layoutY="520.0" prefHeight="25.0" prefWidth="273.0" text="0" />
-            <Label fx:id="textoModFinDepartamento2" layoutX="9.0" layoutY="556.0" text="Mano de obra directa:">
-               <font>
-                  <Font size="13.0" />
-               </font>
-            </Label>
-            <TextField fx:id="txtModPrecioFinDepartamento2" layoutX="142.0" layoutY="553.0" prefHeight="25.0" prefWidth="239.0" text="0" />
-            <Label fx:id="textoCifFinDepartamento2" layoutX="9.0" layoutY="589.0" text="Costos indirecto de fabricación:">
-               <font>
-                  <Font size="13.0" />
-               </font>
-            </Label>
-            <TextField fx:id="txtCifPrecioFinDepartamento2" layoutX="192.0" layoutY="586.0" prefHeight="25.0" prefWidth="189.0" text="0" />
-            <TextField fx:id="txtUnidadesFinDepartamento2" layoutX="70.0" layoutY="456.0" prefHeight="25.0" prefWidth="311.0" text="0" />
-            <Label layoutX="9.0" layoutY="490.0" prefHeight="19.0" prefWidth="77.0" text="Porcentajes:">
-               <font>
-                  <Font size="13.0" />
-               </font>
-            </Label>
-            <TextField fx:id="txtMdPorFinDepartamento2" layoutX="116.0" layoutY="488.0" prefHeight="25.0" prefWidth="36.0" text="0" />
-            <Label layoutX="81.0" layoutY="491.0" prefHeight="19.0" prefWidth="36.0" text="MD =">
-               <font>
-                  <Font size="13.0" />
-               </font>
-            </Label>
-            <Label layoutX="157.0" layoutY="491.0" prefHeight="19.0" prefWidth="19.0" text="\%">
-               <font>
-                  <Font size="13.0" />
-               </font>
-            </Label>
-            <TextField fx:id="txtModPorFinDepartamento2" layoutX="227.0" layoutY="488.0" prefHeight="25.0" prefWidth="36.0" text="0" />
-            <Label fx:id="textoModPorFinDepartamento2" layoutX="182.0" layoutY="491.0" prefHeight="19.0" prefWidth="45.0" text="MOD =">
-               <font>
-                  <Font size="13.0" />
-               </font>
-            </Label>
-            <Label layoutX="267.0" layoutY="491.0" prefHeight="19.0" prefWidth="19.0" text="\%">
-               <font>
-                  <Font size="13.0" />
-               </font>
-            </Label>
-            <TextField fx:id="txtCifPorFinDepartamento2" layoutX="325.0" layoutY="488.0" prefHeight="25.0" prefWidth="36.0" text="0" />
-            <Label fx:id="textoCifPorFinDepartamento2" layoutX="292.0" layoutY="491.0" prefHeight="19.0" prefWidth="36.0" text="CIF =">
-               <font>
-                  <Font size="13.0" />
-               </font>
-            </Label>
-            <Label fx:id="textoPorcentajeFinDepartamento2" layoutX="365.0" layoutY="491.0" prefHeight="19.0" prefWidth="19.0" text="\%">
-               <font>
-                  <Font size="13.0" />
-               </font>
-            </Label>
-            <Separator layoutX="173.0" layoutY="488.0" orientation="VERTICAL" prefHeight="25.0" prefWidth="3.0" style="-fx-background-color: black;" />
-            <Separator fx:id="lineaFinDepartamento2" layoutX="283.0" layoutY="488.0" orientation="VERTICAL" prefHeight="25.0" prefWidth="3.0" style="-fx-background-color: black;" />
-         </children>
-      </AnchorPane>
-      <Button fx:id="butVolver" layoutX="617.0" layoutY="3.0" mnemonicParsing="false" onAction="#butEvento" text="Volver">
+      <TextField fx:id="txtUnidadesFinDepartamento11" layoutX="123.0" layoutY="569.0" prefHeight="25.0" prefWidth="273.0" text="0" />
+      <Label layoutX="12.0" layoutY="572.0" prefHeight="19.0" prefWidth="108.0" text="Costo transferido:">
          <font>
-            <Font size="15.0" />
+            <Font size="13.0" />
          </font>
-      </Button>
+      </Label>
    </children>
 </AnchorPane>
