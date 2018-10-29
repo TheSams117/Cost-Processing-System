@@ -2,6 +2,8 @@ package model;
 
 public class Company {
 	//Goez se la come
+	//Goez se la come x2
+	
 	private Departament departament;
 	
 	
