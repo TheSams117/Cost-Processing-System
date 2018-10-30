@@ -183,7 +183,7 @@ public class CalculateWindowController {
     		PE_MOD_COM_TER.setText("0");
     		PE_CIF_COM_TER.setText("0");
     	}
-    	
+    	 //Auxilio Me desmayo
     	
 	}
 
