@@ -298,6 +298,8 @@ public class Departament {
 		this.costoTransferidoPorUnidad = costoTransferidoPorUnidad;
 	}
 	
+	
+	
 
 	
 }

@@ -168,9 +168,10 @@ public class CalculateWindowController {
     	PT_INI_TERMI.setText(Main.getCompany().getDepartament().getAsignacionDeCostos().getPrecioIniciadasYterminadas()+"");
     	PT_TO_PRO_TERMI.setText(Main.getCompany().getDepartament().getAsignacionDeCostos().getTotalcostosProductoTerminado()+"");
     	
-    	PP_COSTRA.setText(Main.getCompany().getDepartament().getAsignacionDeCostos().getProductoEnProceso()+"");
-    	PP_MD.setText(Main.getCompany().getDepartament().getAsignacionDeCostos().getPrecioInventarioInicialMD()+"");
-    	PP_MOD.setText(Main.getCompany().getDepartament().getAsignacionDeCostos().getPrecioInventarioInicialMOD()+"");
+    	
+    	PP_COSTRA.setText(Main.getCompany().getDepartament().getAsignacionDeCostos().getProductoEnProceso()+"");    		
+    	PP_MD.setText(Main.getCompany().getDepartament().getAsignacionDeCostos().getProductoEnProcesoMD()+"");
+    	PP_MOD.setText(Main.getCompany().getDepartament().getAsignacionDeCostos().getProductoEnProcesoMOD()+"");
     	PP_CIF.setText(Main.getCompany().getDepartament().getAsignacionDeCostos().getProductoEnProcesoCIF()+"");
     	PT_TOTAL_PP.setText(Main.getCompany().getDepartament().getAsignacionDeCostos().getTotalcostosProductoEnProceso()+"");
     	
@@ -183,7 +184,7 @@ public class CalculateWindowController {
     		PE_MOD_COM_TER.setText("0");
     		PE_CIF_COM_TER.setText("0");
     	}
-    	
+    	 //Auxilio Me desmayo
     	
 	}
 

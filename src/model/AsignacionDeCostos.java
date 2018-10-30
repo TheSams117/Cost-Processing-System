@@ -55,7 +55,7 @@ public class AsignacionDeCostos {
 			double costoUnidadMD, double equivalenteFinalMOD, double costoUnidadMOD, 
 			double equivalenteFinalCIF,double costoUnidadCIF,  double equivalenteFinalCC) {
 		
-		productoEnProceso = (unidadesInventarioFinal * costoPorUnidadAgregado) == 0?unidadesInventarioFinal:unidadesInventarioFinal * costoPorUnidadAgregado;
+		productoEnProceso = (unidadesInventarioFinal * costoPorUnidadAgregado);
 		productoEnProcesoMD =  equivalenteFinalMD * costoUnidadMD ;
 
 		if(porCC) {
@@ -183,6 +183,8 @@ public class AsignacionDeCostos {
 	public void setProductoEnProcesoCIF(double productoEnProcesoCIF) {
 		this.productoEnProcesoCIF = productoEnProcesoCIF;
 	}
+	
+	
 
 
 
