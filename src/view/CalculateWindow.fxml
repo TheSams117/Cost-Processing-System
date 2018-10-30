@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.effect.Light.Distant?>
@@ -12,9 +13,9 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="336.0" prefWidth="1187.0" style="-fx-background-color: WHITE;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CalculateWindowController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="336.0" prefWidth="816.0" style="-fx-background-color: WHITE;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CalculateWindowController">
    <children>
-      <TabPane layoutX="2.0" layoutY="35.0" prefHeight="286.0" prefWidth="1170.0" tabClosingPolicy="UNAVAILABLE">
+      <TabPane layoutX="2.0" layoutY="35.0" prefHeight="286.0" prefWidth="794.0" tabClosingPolicy="UNAVAILABLE">
          <tabs>
             <Tab text="Flujo físico">
                <content>
@@ -94,151 +95,180 @@
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="296.0" prefWidth="761.0" style="-fx-background-color: white;">
                      <children>
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2197ff00" height="173.0" layoutX="16.0" layoutY="15.0" stroke="BLACK" strokeType="INSIDE" width="1146.0">
-                           <effect>
-                              <Lighting>
-                                 <bumpInput>
-                                    <Shadow />
-                                 </bumpInput>
-                                 <light>
-                                    <Light.Distant />
-                                 </light>
-                              </Lighting>
-                           </effect>
-                        </Rectangle>
-                        <Label layoutX="24.0" layoutY="51.0" prefHeight="34.0" prefWidth="139.0" text="Inventario inicial">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <Line endX="787.0" endY="-111.0" layoutX="375.0" layoutY="163.0" startX="-359.0" startY="-111.0" />
-                        <Label layoutX="24.0" layoutY="84.0" prefHeight="34.0" prefWidth="247.0" text="Uni. comenzadas y terminadas">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <Line endX="788.0" endY="-111.0" layoutX="374.0" layoutY="195.0" startX="-359.0" startY="-111.0" />
-                        <Line endX="787.0" endY="-111.0" layoutX="375.0" layoutY="228.0" startX="-359.0" startY="-111.0" />
-                        <Label layoutX="24.0" layoutY="116.0" prefHeight="34.0" prefWidth="247.0" text="Inventario final">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <Line endX="787.0" endY="-111.0" layoutX="375.0" layoutY="260.0" startX="-359.0" startY="-111.0" strokeMiterLimit="20.0" />
-                        <Label layoutX="24.0" layoutY="150.0" prefHeight="34.0" prefWidth="247.0" text="Unidades a costear:">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <Line endX="-87.0" endY="41.0" layoutX="358.0" layoutY="147.0" startX="-87.0" startY="-131.0" />
-                        <Label layoutX="278.0" layoutY="19.0" prefHeight="34.0" prefWidth="139.0" text="MD (Uni.)">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="PE_MD_INI" layoutX="279.0" layoutY="51.0" prefHeight="34.0" prefWidth="200.0" text="0">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="PE_MOD_INI" layoutX="501.0" layoutY="51.0" prefHeight="34.0" prefWidth="200.0" text="0">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="PE_MD_COM_TER" layoutX="279.0" layoutY="84.0" prefHeight="34.0" prefWidth="200.0" text="0">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="PE_MD_INF" layoutX="279.0" layoutY="116.0" prefHeight="34.0" prefWidth="200.0" text="0">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="PE_MD_UAC" layoutX="279.0" layoutY="150.0" prefHeight="34.0" prefWidth="200.0" text="0">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <Line endX="-87.0" endY="41.0" layoutX="580.0" layoutY="147.0" startX="-87.0" startY="-131.0" />
-                        <Line endX="-87.0" endY="41.0" layoutX="801.0" layoutY="147.0" startX="-87.0" startY="-131.0" />
-                        <Label fx:id="PE_CIF_INI" layoutX="722.0" layoutY="51.0" prefHeight="34.0" prefWidth="200.0" text="0">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="PE_CC_INI" layoutX="945.0" layoutY="51.0" prefHeight="34.0" prefWidth="200.0" text="0">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <Line endX="-87.0" endY="41.0" layoutX="1024.0" layoutY="146.0" startX="-87.0" startY="-131.0" />
-                        <Label fx:id="PE_MOD_COM_TER" layoutX="501.0" layoutY="85.0" prefHeight="34.0" prefWidth="200.0" text="0">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="PE_MOD_INF" layoutX="501.0" layoutY="116.0" prefHeight="34.0" prefWidth="200.0" text="0">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="PE_MOD_UAC" layoutX="501.0" layoutY="150.0" prefHeight="34.0" prefWidth="200.0" text="0">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="PE_CIF_COM_TER" layoutX="722.0" layoutY="84.0" prefHeight="34.0" prefWidth="200.0" text="0">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="PE_CIF_INF" layoutX="722.0" layoutY="116.0" prefHeight="34.0" prefWidth="200.0" text="0">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="PE_CIF_UAC" layoutX="722.0" layoutY="150.0" prefHeight="34.0" prefWidth="200.0" text="0">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="PE_CC_COM_TER" layoutX="945.0" layoutY="85.0" prefHeight="34.0" prefWidth="200.0" text="0">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="PE_CC_INF" layoutX="945.0" layoutY="116.0" prefHeight="34.0" prefWidth="200.0" text="0">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="PE_CC_UAC" layoutX="945.0" layoutY="150.0" prefHeight="34.0" prefWidth="200.0" text="0">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="501.0" layoutY="19.0" prefHeight="34.0" prefWidth="139.0" text="MOD (Uni.)">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="722.0" layoutY="19.0" prefHeight="34.0" prefWidth="139.0" text="CIF (Uni.)">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="945.0" layoutY="19.0" prefHeight="34.0" prefWidth="139.0" text="CC (Uni.)">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="25.0" layoutY="19.0" prefHeight="34.0" prefWidth="235.0" text="Producción equivalente:">
-                           <font>
-                              <Font name="System Bold" size="20.0" />
-                           </font>
-                        </Label>
+                        <ScrollPane layoutX="14.0" layoutY="15.0" prefHeight="227.0" prefWidth="775.0">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="1450.0" style="-fx-background-color: WHITE;">
+                                 <children>
+                                    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2197ff00" height="173.0" layoutX="16.0" layoutY="15.0" stroke="BLACK" strokeType="INSIDE" width="1362.0">
+                                       <effect>
+                                          <Lighting>
+                                             <bumpInput>
+                                                <Shadow />
+                                             </bumpInput>
+                                             <light>
+                                                <Light.Distant />
+                                             </light>
+                                          </Lighting>
+                                       </effect>
+                                    </Rectangle>
+                                    <Label layoutX="24.0" layoutY="51.0" prefHeight="34.0" prefWidth="139.0" text="Inventario inicial">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Line endX="1003.0" endY="-111.0" layoutX="375.0" layoutY="163.0" startX="-359.0" startY="-111.0" />
+                                    <Label layoutX="24.0" layoutY="84.0" prefHeight="34.0" prefWidth="247.0" text="Uni. comenzadas y terminadas">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Line endX="1004.0" endY="-111.0" layoutX="374.0" layoutY="195.0" startX="-359.0" startY="-111.0" />
+                                    <Line endX="1002.0" endY="-111.0" layoutX="375.0" layoutY="228.0" startX="-359.0" startY="-111.0" />
+                                    <Label layoutX="24.0" layoutY="116.0" prefHeight="34.0" prefWidth="247.0" text="Inventario final">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Line endX="1003.0" endY="-111.0" layoutX="375.0" layoutY="260.0" startX="-359.0" startY="-111.0" strokeMiterLimit="20.0" />
+                                    <Label layoutX="24.0" layoutY="150.0" prefHeight="34.0" prefWidth="247.0" text="Unidades a costear:">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Line endX="-87.0" endY="41.0" layoutX="358.0" layoutY="147.0" startX="-87.0" startY="-131.0" />
+                                    <Label layoutX="500.0" layoutY="19.0" prefHeight="34.0" prefWidth="139.0" text="MD (Uni.)">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="PE_MD_INI" layoutX="501.0" layoutY="51.0" prefHeight="34.0" prefWidth="200.0" text="0">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="PE_MOD_INI" layoutX="723.0" layoutY="51.0" prefHeight="34.0" prefWidth="200.0" text="0">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="PE_MD_COM_TER" layoutX="501.0" layoutY="84.0" prefHeight="34.0" prefWidth="200.0" text="0">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="PE_MD_INF" layoutX="501.0" layoutY="116.0" prefHeight="34.0" prefWidth="200.0" text="0">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="PE_MD_UAC" layoutX="501.0" layoutY="150.0" prefHeight="34.0" prefWidth="200.0" text="0">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Line endX="-87.0" endY="41.0" layoutX="580.0" layoutY="147.0" startX="-87.0" startY="-131.0" />
+                                    <Line endX="-87.0" endY="41.0" layoutX="801.0" layoutY="147.0" startX="-87.0" startY="-131.0" />
+                                    <Label fx:id="PE_CIF_INI" layoutX="944.0" layoutY="51.0" prefHeight="34.0" prefWidth="200.0" text="0">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="PE_CC_INI" layoutX="1167.0" layoutY="51.0" prefHeight="34.0" prefWidth="200.0" text="0">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Line endX="-87.0" endY="41.0" layoutX="1024.0" layoutY="146.0" startX="-87.0" startY="-131.0" />
+                                    <Label fx:id="PE_MOD_COM_TER" layoutX="723.0" layoutY="85.0" prefHeight="34.0" prefWidth="200.0" text="0">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="PE_MOD_INF" layoutX="723.0" layoutY="116.0" prefHeight="34.0" prefWidth="200.0" text="0">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="PE_MOD_UAC" layoutX="723.0" layoutY="150.0" prefHeight="34.0" prefWidth="200.0" text="0">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="PE_CIF_COM_TER" layoutX="944.0" layoutY="84.0" prefHeight="34.0" prefWidth="200.0" text="0">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="PE_CIF_INF" layoutX="944.0" layoutY="116.0" prefHeight="34.0" prefWidth="200.0" text="0">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="PE_CIF_UAC" layoutX="944.0" layoutY="150.0" prefHeight="34.0" prefWidth="200.0" text="0">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="PE_CC_COM_TER" layoutX="1167.0" layoutY="85.0" prefHeight="34.0" prefWidth="200.0" text="0">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="PE_CC_INF" layoutX="1167.0" layoutY="116.0" prefHeight="34.0" prefWidth="200.0" text="0">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="PE_CC_UAC" layoutX="1167.0" layoutY="150.0" prefHeight="34.0" prefWidth="200.0" text="0">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="723.0" layoutY="19.0" prefHeight="34.0" prefWidth="139.0" text="MOD (Uni.)">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="944.0" layoutY="19.0" prefHeight="34.0" prefWidth="139.0" text="CIF (Uni.)">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="1167.0" layoutY="19.0" prefHeight="34.0" prefWidth="139.0" text="CC (Uni.)">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="25.0" layoutY="19.0" prefHeight="34.0" prefWidth="235.0" text="Producción equivalente:">
+                                       <font>
+                                          <Font name="System Bold" size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <Line endX="-87.0" endY="41.0" layoutX="1239.0" layoutY="147.0" startX="-87.0" startY="-131.0" />
+                                    <Label fx:id="U_INI_1" layoutX="278.0" layoutY="51.0" prefHeight="34.0" prefWidth="200.0" text="0">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="U_COMENZADA_TER_1" layoutX="278.0" layoutY="85.0" prefHeight="34.0" prefWidth="200.0" text="0">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="U_INF_FINAL_1" layoutX="278.0" layoutY="116.0" prefHeight="34.0" prefWidth="200.0" text="0">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="TOTAL_U_COSTEAR_1" layoutX="278.0" layoutY="150.0" prefHeight="34.0" prefWidth="200.0" text="0">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </ScrollPane>
                      </children>
                   </AnchorPane>
                </content>
@@ -569,12 +599,12 @@
             </Tab>
          </tabs>
       </TabPane>
-      <Label layoutX="2.0" prefHeight="34.0" prefWidth="200.0" text="Informe de costos:">
+      <Label layoutX="9.0" prefHeight="34.0" prefWidth="200.0" text="Informe de costos:">
          <font>
             <Font name="System Bold Italic" size="23.0" />
          </font>
       </Label>
-      <Button fx:id="volver" layoutX="550.0" layoutY="2.0" mnemonicParsing="false" onAction="#back" text="Volver">
+      <Button fx:id="volver" layoutX="734.0" layoutY="2.0" mnemonicParsing="false" onAction="#back" text="Volver">
          <font>
             <Font size="15.0" />
          </font>
