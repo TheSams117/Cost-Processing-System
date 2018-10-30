@@ -12,26 +12,15 @@ public class StartWindowController {
     @FXML
     private Button startCost;
     
-    @FXML
-    private ComboBox<String> selectedAmount;
+
 
     @FXML
     void Button(ActionEvent event) {
-			String value = selectedAmount.getValue();
-			if(value != null && !(value.equalsIgnoreCase("Seleccionar"))) {
-				Main.costCompany(Integer.parseInt(value));
-			}
+		
+				Main.costCompany(1);
+			
 			
     }
 
-    @FXML
-    void combox(ActionEvent event) {
-    	
-    }
-    
-    public void initialize() {
-    	ObservableList<String> items = FXCollections.observableArrayList("Seleccionar","1");
-    	selectedAmount.setItems(items);
-	}
 
 }
