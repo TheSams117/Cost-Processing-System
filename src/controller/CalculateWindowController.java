@@ -129,15 +129,40 @@ public class CalculateWindowController {
     	PE_MD_INF.setText(Main.getCompany().getDepartament().getFlujoFisico().getMDequivalenteInventarioFinal()+"");
     	PE_MD_UAC.setText(Main.getCompany().getDepartament().getFlujoFisico().getUnidadesAcostearMD()+"");
     	
-    	PE_MOD_INI
-    	PE_MD_COM_TER
-    	PE_MD_INF
-    	PE_MOD_INI
+    	PE_MOD_INI.setText(Main.getCompany().getDepartament().getFlujoFisico().getMODequivalenteInventarioInicial()+"");
+    	PE_MOD_COM_TER.setText(Main.getCompany().getDepartament().getFlujoFisico().getUnidadesComenzadasYterminadas()+"");
+    	PE_MOD_INF.setText(Main.getCompany().getDepartament().getFlujoFisico().getMODequivalenteInventarioFinal()+"");
+    	PE_MOD_UAC.setText(Main.getCompany().getDepartament().getFlujoFisico().getUnidadesAcostearMOD()+"");
+    	
+    	PE_CIF_INI.setText(Main.getCompany().getDepartament().getFlujoFisico().getCIFequivalenteInventarioInicial()+"");
+    	PE_CIF_COM_TER.setText(Main.getCompany().getDepartament().getFlujoFisico().getUnidadesComenzadasYterminadas()+"");
+    	PE_CIF_INF.setText(Main.getCompany().getDepartament().getFlujoFisico().getCIFequivalenteInventarioFinal()+"");
+    	PE_CIF_UAC.setText(Main.getCompany().getDepartament().getFlujoFisico().getUnidadesAcostearCIF()+"");
+    	
+    	PE_CC_INI.setText(Main.getCompany().getDepartament().getFlujoFisico().getCCequivalenteInventarioInicial()+"");
+    	PE_CC_COM_TER.setText(Main.getCompany().getDepartament().getFlujoFisico().getUnidadesComenzadasYterminadas()+"");
+    	PE_CC_INF.setText(Main.getCompany().getDepartament().getFlujoFisico().getCCequivalenteInventarioFinal()+"");
+    	PE_CC_UAC.setText(Main.getCompany().getDepartament().getFlujoFisico().getUnidadesAcostearCC()+"");
+    	
+    	CU_MD.setText(Main.getCompany().getDepartament().getCostoPorUnidad().getCostoMDporUnidad()+"");
+    	CU_MOD.setText(Main.getCompany().getDepartament().getCostoPorUnidad().getCostoMODporUnidad()+"");
+    	CU_CIF.setText(Main.getCompany().getDepartament().getCostoPorUnidad().getCostoCIFporUnidad()+"");
+    	CU_TOTAL.setText(Main.getCompany().getDepartament().getCostoPorUnidad().getTotalCostoPorUnidad()+"");
+    	
+    	PT_INI.setText(Main.getCompany().getDepartament().getAsignacionDeCostos().getPrecioInventarioInicial()+"");
+    	PT_MD.setText(Main.getCompany().getDepartament().getAsignacionDeCostos().getPrecioInventarioInicialMD()+"");
+    	PT_MOD.setText(Main.getCompany().getDepartament().getAsignacionDeCostos().getPrecioInventarioInicialMOD()+"");
+    	PT_CIF.setText(Main.getCompany().getDepartament().getAsignacionDeCostos().getPrecioInvetnarioIncialCIF()+"");
+    	PT_INI_TERMI.setText(Main.getCompany().getDepartament().getAsignacionDeCostos().getPrecioIniciadasYterminadas()+"");
+    	PT_TO_PRO_TERMI.setText(Main.getCompany().getDepartament().getAsignacionDeCostos().getTotalcostosProductoTerminado()+"");
+    	
+    	PP_COSTRA.setText(Main.getCompany().getDepartament().getAsignacionDeCostos().getProductoEnProceso()+"");
+    	PP_MD.setText(Main.getCompany().getDepartament().getAsignacionDeCostos().getPrecioInventarioInicialMD()+"");
+    	PP_MOD.setText(Main.getCompany().getDepartament().getAsignacionDeCostos().getPrecioInventarioInicialMOD()+"");
+    	PP_CIF.setText(Main.getCompany().getDepartament().getAsignacionDeCostos().getProductoEnProcesoCIF()+"");
+    	PT_TOTAL_PP.setText(Main.getCompany().getDepartament().getAsignacionDeCostos().getTotalcostosProductoEnProceso()+"");
     	
     	
-    	FF_TO_UEP.setText(Main.getCompany().getDepartament().getFlujoFisico().getUnidadesEnProceso()+"");
-    	FF_TO_UEP.setText(Main.getCompany().getDepartament().getFlujoFisico().getUnidadesEnProceso()+"");
-    	FF_TO_UEP.setText(Main.getCompany().getDepartament().getFlujoFisico().getUnidadesEnProceso()+"");
 	}
 
 }
