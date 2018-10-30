@@ -67,6 +67,18 @@ public class CalculateWindowController {
     private Label PE_CC_UAC;
 
     @FXML
+    private Label U_INI_1;
+
+    @FXML
+    private Label U_COMENZADA_TER_1;
+
+    @FXML
+    private Label U_INF_FINAL_1;
+
+    @FXML
+    private Label TOTAL_U_COSTEAR_1;
+
+    @FXML
     private Label CU_MD;
 
     @FXML
@@ -161,6 +173,16 @@ public class CalculateWindowController {
     	PP_MOD.setText(Main.getCompany().getDepartament().getAsignacionDeCostos().getPrecioInventarioInicialMOD()+"");
     	PP_CIF.setText(Main.getCompany().getDepartament().getAsignacionDeCostos().getProductoEnProcesoCIF()+"");
     	PT_TOTAL_PP.setText(Main.getCompany().getDepartament().getAsignacionDeCostos().getTotalcostosProductoEnProceso()+"");
+    	
+    	U_INI_1.setText(Main.getCompany().getDepartament().getInventarioInicialUnidades()+"");
+    	U_COMENZADA_TER_1.setText(Main.getCompany().getDepartament().getFlujoFisico().getUnidadesComenzadasYterminadas()+"");
+    	U_INF_FINAL_1.setText(Main.getCompany().getDepartament().getInventarioFinal()+"");
+    	TOTAL_U_COSTEAR_1.setText(Main.getCompany().getDepartament().getFlujoFisico().getUnidadesAcostear()+"");
+    	
+    	if(Main.isCalculaCostosConver()) {
+    		PE_MOD_COM_TER.setText("0");
+    		PE_CIF_COM_TER.setText("0");
+    	}
     	
     	
 	}

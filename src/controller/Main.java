@@ -16,6 +16,7 @@ public class Main extends Application {
 	private static int departments;
 	private static Company company;
 	private static AnchorPane window;
+	private static boolean calculaCostosConver;
 	
 	@Override
 	public void start(Stage primaryStage) {
@@ -98,6 +99,8 @@ public class Main extends Application {
 			double costoTransferidoPorUnidad, 
 			boolean porCC) {
 		
+		calculaCostosConver = porCC;
+		
 		company.calcularCostos(	inventarioInicialUnidades, 
 								mDinvenrarioInicial, 
 								mODinventarioInicial, 
@@ -171,5 +174,13 @@ public class Main extends Application {
 
 	public static void main(String[] args) {
 		launch(args);
+	}
+
+	public static boolean isCalculaCostosConver() {
+		return calculaCostosConver;
+	}
+
+	public static void setCalculaCostosConver(boolean calculaCostosConver) {
+		Main.calculaCostosConver = calculaCostosConver;
 	}
 }
