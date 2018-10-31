@@ -1,7 +1,5 @@
 package controller;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -9,7 +7,7 @@ import javafx.scene.control.Label;
 
 public class CalculateWindowController {
 
-    @FXML
+	@FXML
     private Label FF_INI;
 
     @FXML
@@ -125,6 +123,9 @@ public class CalculateWindowController {
 
     @FXML
     private Button volver;
+    
+    @FXML
+    private Label nombreDepartamento;
 
     @FXML
     void back(ActionEvent event) {
@@ -183,9 +184,11 @@ public class CalculateWindowController {
     	if(Main.isCalculaCostosConver()) {
     		PE_MOD_COM_TER.setText("0.000");
     		PE_CIF_COM_TER.setText("0.000");
+    	}else {
+    		PE_CC_COM_TER.setText("0.000");
     	}
-    	 //Auxilio Me desmayo
     	
+    	nombreDepartamento.setText(Main.getNameDepartment());
 	}
     
     public static Double formatearDecimales(Double numero, Integer numeroDecimales) {

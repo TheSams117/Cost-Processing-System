@@ -16,7 +16,9 @@ public class Main extends Application {
 	private static int departments;
 	private static Company company;
 	private static AnchorPane window;
+	private static Scene saveMainWindow;
 	private static boolean calculaCostosConver;
+	private static String nameDepartment;
 	
 	@Override
 	public void start(Stage primaryStage) {
@@ -65,7 +67,7 @@ public class Main extends Application {
 			FXMLLoader loader=new FXMLLoader();
 			loader.setLocation(Main.class.getResource("/view/MainWindow.fxml"));
 			window = loader.load();
-			Scene scene=new Scene(window);
+			Scene scene=saveMainWindow;
 			primaryStage.setScene(scene);
 			primaryStage.centerOnScreen();
 
@@ -97,10 +99,10 @@ public class Main extends Application {
 			double porcentajeCCinventarioFinal, 
 			double unidadesTerminadas, 
 			double costoTransferidoPorUnidad, 
-			boolean porCC) {
+			boolean porCC,String name) {
 		
 		calculaCostosConver = porCC;
-		
+		nameDepartment = name;
 		company.calcularCostos(	inventarioInicialUnidades, 
 								mDinvenrarioInicial, 
 								mODinventarioInicial, 
@@ -127,6 +129,7 @@ public class Main extends Application {
 			FXMLLoader loader=new FXMLLoader();
 			loader.setLocation(Main.class.getResource("/view/CalculateWindow.fxml"));
 			window = (AnchorPane)loader.load();
+			saveMainWindow = primaryStage.getScene();
 			Scene scene=new Scene(window);
 			primaryStage.setScene(scene);
 			primaryStage.centerOnScreen();
@@ -182,5 +185,13 @@ public class Main extends Application {
 
 	public static void setCalculaCostosConver(boolean calculaCostosConver) {
 		Main.calculaCostosConver = calculaCostosConver;
+	}
+
+	public static String getNameDepartment() {
+		return nameDepartment;
+	}
+
+	public static void setNameDepartment(String nameDepartment) {
+		Main.nameDepartment = nameDepartment;
 	}
 }

@@ -1,7 +1,7 @@
 package model;
 
 public class Company {
-	//Goez se la come
+
 	private Departament departament;
 	
 	
@@ -92,11 +92,11 @@ public class Company {
 
 
 	public static void main(String[] args) {
+		@SuppressWarnings("unused")
 		Company company = new Company();
 		Departament dp = new Departament(15500, 1020000, 820000, 800000, 0, 100, 0, 0, 65, 36000, 2029200.50 , 2726625, 2627750.75, 0, 3500, 100, 0, 0, 45, 48000, 0, true);
 		
 		dp.calcularCostos();
-		
 		
 		System.out.println("---FLUJO FISICO---");
 		System.out.println("Inventario inicial pp " + dp.getInventarioInicialUnidades());

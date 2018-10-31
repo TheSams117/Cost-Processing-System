@@ -131,7 +131,7 @@ public class MainWindowController {
 					Double.parseDouble(txtModPorFinDepartamento1.getText()), 
 					Double.parseDouble(txtUnidadesFinDepartamento111.getText()), 
 					Double.parseDouble(txtUnidadesFinDepartamento11.getText()), 
-					chkbCostosDeConversión.isSelected());
+					chkbCostosDeConversión.isSelected(),txtNombreDepartamento1.getText());
     	}
     }
 
